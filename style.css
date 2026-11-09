@@ -54,8 +54,8 @@ section{
     align-items:center;
     text-align:center;
     padding-top:60px;
-    background:#f5f5f5;
-}
+
+    background:
     radial-gradient(
         circle at center,
         #ffffff,
@@ -126,37 +126,28 @@ h2{
 }
 .robot-hand{
     position:absolute;
-animation: float 4s ease-in-out infinite;
-    left:60px;
-    bottom:120px;
+    left:40px;
+    bottom:70px;
 
-    width:220px;
+    width:320px;
 
     z-index:1;
-    border:none;
-}
-.robot-hand{
-    position:absolute;
-    left:20px;
-    bottom:20px;
-    width:300px;
-    z-index:999;
-    border:3px solid red;
+
+    animation: float 4s ease-in-out infinite;
 }
 @keyframes float {
 
     0%{
-        transform:translateY(0px);
+        transform:translateY(0);
     }
 
     50%{
-        transform:translateY(-12px);
+        transform:translateY(-25px);
     }
 
     100%{
-        transform:translateY(0px);
+        transform:translateY(0);
     }
-
 }
 nav a{
     position:relative;
