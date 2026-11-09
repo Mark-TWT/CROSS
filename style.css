@@ -121,3 +121,16 @@ h2{
     gap:40px;
     align-items:center;
 }
+#home{
+    position:relative;
+}
+.robot-hand{
+    position:absolute;
+
+    left:-50px;
+    bottom:0;
+
+    width:350px;
+
+    opacity:0.9;
+}
