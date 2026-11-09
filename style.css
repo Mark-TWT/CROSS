@@ -44,14 +44,24 @@ section{
 }
 
 #home{
-    background:linear-gradient(135deg,#003b73,#00a3e0);
-    color:white;
+    min-height:100vh;
 
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+
+    text-align:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #ffffff,
+        #f7f9fc
+    );
+
+    padding:120px 10%;
 }
+
 
 #home h1{
     font-size:90px;
@@ -65,4 +75,28 @@ section{
 h2{
     color:#003b73;
     font-size:48px;
+}
+.hero-content{
+    max-width:1000px;
+}
+.hero-content h1{
+    font-size:64px;
+    font-weight:300;
+    color:#222;
+
+    margin-bottom:40px;
+}
+.hero-content h2{
+    font-size:40px;
+    font-weight:300;
+
+    margin-bottom:50px;
+
+    color:#333;
+}
+.funding{
+    font-size:18px;
+    line-height:1.7;
+
+    color:#666;
 }
