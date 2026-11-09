@@ -334,3 +334,24 @@ nav a:hover::after{
 
     color:#333;
 }
+.approach-icon{
+
+    width:70px;
+    height:70px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin-bottom:25px;
+}
+.approach-card{
+
+    text-align:left;
+
+    transition:0.3s ease;
+}
+.approach-card:hover{
+
+    transform:translateY(-8px);
+}
