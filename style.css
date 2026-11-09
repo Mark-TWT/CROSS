@@ -126,13 +126,14 @@ h2{
 }
 .robot-hand{
     position:absolute;
+animation: float 4s ease-in-out infinite;
+    left:60px;
+    bottom:120px;
 
-    left:-50px;
-    bottom:0;
+    width:220px;
 
-    width:350px;
-
-    opacity:0.9;
+    z-index:1;
+    border:none;
 }
 .robot-hand{
     position:absolute;
@@ -141,4 +142,43 @@ h2{
     width:300px;
     z-index:999;
     border:3px solid red;
+}
+@keyframes float {
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+nav a{
+    position:relative;
+}
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+
+    height:2px;
+
+    background:#0f8bff;
+
+    transition:0.3s;
+}
+nav a:hover::after{
+
+    width:100%;
 }
