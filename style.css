@@ -173,3 +173,57 @@ nav a:hover::after{
 
     width:100%;
 }
+#project{
+
+    background:#006682;
+
+    color:white;
+
+    min-height:100vh;
+
+    padding:100px 90px;
+}
+.project-container{
+
+    max-width:1200px;
+
+    margin:0 auto;
+}
+.project-title{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:54px;
+
+    font-weight:300;
+
+    margin-bottom:100px;
+}
+.project-block{
+
+    margin-bottom:90px;
+}
+.project-block h3{
+
+    font-size:40px;
+
+    font-weight:300;
+
+    margin-bottom:25px;
+
+    color:white;
+}
+.project-block p{
+
+    font-size:24px;
+
+    line-height:1.7;
+
+    color:white;
+
+    max-width:1200px;
+
+    margin-bottom:15px;
+}
