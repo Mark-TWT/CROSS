@@ -65,3 +65,18 @@ h2 {
     margin-bottom: 20px;
     font-size: 2.5rem;
 }
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f9fc;
+    text-align: center;
+    padding-top: 100px;
+}
+
+h1 {
+    color: #003b73;
+    font-size: 60px;
+}
+
+p {
+    font-size: 24px;
+}
