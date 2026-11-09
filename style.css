@@ -244,3 +244,93 @@ nav a:hover::after{
 
     color:#222;
 }
+#approach{
+
+    background:#f5f5f5;
+
+    min-height:100vh;
+
+    padding:100px 80px;
+}
+.approach-title{
+
+    text-align:center;
+
+    font-size:56px;
+
+    font-weight:300;
+
+    color:#111;
+
+    margin-bottom:40px;
+}
+.approach-intro{
+
+    text-align:center;
+
+    font-size:26px;
+
+    color:#333;
+
+    margin-bottom:100px;
+}
+.approach-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:40px;
+
+    margin-bottom:120px;
+}
+.approach-card{
+
+    text-align:left;
+}
+.approach-card h3{
+
+    color:#1d2350;
+
+    font-size:24px;
+
+    font-weight:500;
+
+    margin-bottom:25px;
+
+    min-height:80px;
+}
+.approach-card p{
+
+    color:#333;
+
+    font-size:18px;
+
+    line-height:1.8;
+}
+.approach-footer{
+
+    text-align:center;
+
+    max-width:1100px;
+
+    margin:0 auto;
+}
+.approach-footer h3{
+
+    font-size:40px;
+
+    color:#111;
+
+    margin-bottom:20px;
+
+    font-weight:500;
+}
+.approach-footer p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#333;
+}
