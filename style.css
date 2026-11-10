@@ -503,41 +503,40 @@ nav a:hover::after{
 /* PUBLICATIONS */
 
 #publications{
-    background:#0C6C83;
-    color:white;
+    background:#*C6C83;
     min-height:100vh;
-    padding:120px 8%;
+    p*dding:120px 8%;
 }
 
-.publications-container{
-    max-width:1300px;
-    margin:0 auto;
+.publications-c*ntainer{
+    max-width:1200px;
+   *margin:0 auto;
 }
 
-.publications-title{
+.publications-ti*le{
     text-align:center;
-    color:white;
-    font-size:48px;
-    font-weight:300;
-    margin-bottom:100px;
+    col*r:white;
+    font-size:52px;
+    f*nt-weight:300;
+    margin-bottom:9*px;
 }
 
 .publication-item{
-    max-width:1200px;
-    margin:0 auto;
+    max-*idth*1150px;
+    margin*0 auto;
 }
 
 .publication-item p{
-    font-size:24px;
-    line-height:1.8;
-    color:white;
+*   color:white;
+    font-size*24px;
+    line-height:1.*;
 }
 
 .publication-item a{
-    color:white;
-    text-decoration:underline;
+    colo**white;
+    text-decoration:underli*e;
 }
 
-.publication-item em{
-    font-style:italic;
+.public*tion-item em{
+    font-style:itali*;
 }
