@@ -509,7 +509,7 @@ nav a:hover::after{
 }
 
 .publications-container{
-    max-width:1300px;
+    max-width:1250px;
     margin:0 auto;
 }
 
@@ -518,18 +518,18 @@ nav a:hover::after{
     color:white;
     font-size:48px;
     font-weight:300;
-    margin-bottom:100px;
+    margin-bottom:90px;
 }
 
 .publication-item{
-    max-width:1200px;
+    max-width:1150px;
     margin:0 auto;
 }
 
 .publication-item p{
     color:white;
-    font-size:26px;
-    line-height:1.8;
+    font-size:24px;
+    line-height:1.7;
 }
 
 .publication-item a{
@@ -539,17 +539,4 @@ nav a:hover::after{
 
 .publication-item em{
     font-style:italic;
-}
-.publication-item{
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-}
-
-.publication-bullet{
-    color:white;
-    font-size:40px;
-    line-height:1;
-    margin-top:8px;
-    flex-shrink:0;
 }
