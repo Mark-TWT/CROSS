@@ -500,3 +500,44 @@ nav a:hover::after{
     padding-left:40px;
     margin-bottom:15px;
 }
+/* PUBLICATIONS */
+
+#publications{
+    background:#0C6C83;
+    color:white;
+    min-height:100vh;
+    padding:120px 8%;
+}
+
+.publications-container{
+    max-width:1300px;
+    margin:0 auto;
+}
+
+.publications-title{
+    text-align:center;
+    color:white;
+    font-size:48px;
+    font-weight:300;
+    margin-bottom:100px;
+}
+
+.publication-item{
+    max-width:1200px;
+    margin:0 auto;
+}
+
+.publication-item p{
+    font-size:24px;
+    line-height:1.8;
+    color:white;
+}
+
+.publication-item a{
+    color:white;
+    text-decoration:underline;
+}
+
+.publication-item em{
+    font-style:italic;
+}
