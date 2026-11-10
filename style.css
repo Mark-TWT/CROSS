@@ -540,3 +540,16 @@ nav a:hover::after{
 .publication-item em{
     font-style:italic;
 }
+.publication-item{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+}
+
+.publication-bullet{
+    color:white;
+    font-size:40px;
+    line-height:1;
+    margin-top:8px;
+    flex-shrink:0;
+}
