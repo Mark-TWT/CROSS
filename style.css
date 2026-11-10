@@ -563,14 +563,15 @@ nav a:hover::after{
 
 .contact-content{
     display:grid;
-    grid-template-columns:1fr 1.2fr 1fr;
+    grid-template-columns:1fr 1fr;
     align-items:center;
-    gap:60px;
-    margin-bottom:100px;
+    gap:100px;
+    margin-bottom:60px;
 }
 
 .contact-logo img{
-    max-width:300px;
+    width:340px;
+    max-width:100%;
     margin:0 auto;
 }
 
@@ -605,14 +606,19 @@ nav a:hover::after{
 
 .contact-funding{
     max-width:1000px;
-    margin:0 auto 50px auto;
+    margin:30px auto 30px auto;
     text-align:center;
     font-size:18px;
     line-height:1.8;
     color:#555;
 }
 
+.invest-logo{
+    margin-top:-30px;
+}
+
 .invest-logo img{
-    max-width:450px;
+    width:380px;
+    max-width:100%;
     margin:0 auto;
 }
