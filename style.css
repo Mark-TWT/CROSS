@@ -503,40 +503,40 @@ nav a:hover::after{
 /* PUBLICATIONS */
 
 #publications{
-    background:#*C6C83;
+    background:#0C6C83;
     min-height:100vh;
-    p*dding:120px 8%;
+    padding:120px 8%;
 }
 
-.publications-c*ntainer{
-    max-width:1200px;
-   *margin:0 auto;
+.publications-container{
+    max-width:1300px;
+    margin:0 auto;
 }
 
-.publications-ti*le{
+.publications-title{
     text-align:center;
-    col*r:white;
-    font-size:52px;
-    f*nt-weight:300;
-    margin-bottom:9*px;
+    color:white;
+    font-size:48px;
+    font-weight:300;
+    margin-bottom:100px;
 }
 
 .publication-item{
-    max-*idth*1150px;
-    margin*0 auto;
+    max-width:1200px;
+    margin:0 auto;
 }
 
-.publication*item p{
+.publication-item p{
     color:white;
-    font-*ize*28px;
-    line-height*1.9;
+    font-size:26px;
+    line-height:1.8;
 }
 
 .publication-item a{
-    colo**white;
-    text-decoration:underli*e;
+    color:white;
+    text-decoration:underline;
 }
 
-.public*tion-item em{
-    font-style:itali*;
+.publication-item em{
+    font-style:italic;
 }
