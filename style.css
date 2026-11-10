@@ -394,11 +394,11 @@ nav a:hover::after{
 }
 
 .benefit-card img{
-    width:250px;
-    height:250px;
+    width:140px;
+    height:140px;
     object-fit:contain;
     display:block;
-    margin:0 auto 20px auto;
+    margin:0 auto 25px auto;
 }
 
 .benefit-card h3{
@@ -434,4 +434,12 @@ nav a:hover::after{
 
 .benefit-card:nth-child(5){
     grid-column:4 / 6;
+}
+.benefit-card{
+    text-align:center;
+    max-width:350px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
