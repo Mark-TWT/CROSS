@@ -563,10 +563,10 @@ nav a:hover::after{
 
 .contact-content{
     display:grid;
-    grid-template-columns:1fr 1.2fr 1fr;
+    grid-template-columns:1fr 1fr 1fr;
     align-items:center;
     gap:60px;
-    margin-bottom:60px;
+    margin-bottom:80px;
 }
 
 .contact-logo img{
@@ -627,6 +627,23 @@ nav a:hover::after{
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+.contact-slogan img{
+    width:320px;
+    max-width:100%;
+}
+.contact-logo{
+    justify-self:start;
+}
+
+.contact-details{
+    justify-self:center;
+    text-align:center;
+}
+
+.contact-slogan{
+    justify-self:end;
 }
 
 .contact-slogan img{
