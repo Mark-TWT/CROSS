@@ -687,7 +687,9 @@ nav a:hover::after{
     }
 }
 @media (max-width:768px){
-
+body{
+        background:red !important;
+    }
     .hero-content{
         width:100%;
     }
