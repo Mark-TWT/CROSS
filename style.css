@@ -687,25 +687,29 @@ nav a:hover::after{
     }
 }
 @media (max-width:768px){
-.hero-content{
-    width:100%;
+
+    .hero-content{
+        width:100%;
+    }
+
     .approach-card:nth-child(2) .approach-icon{
-    width:120px;
-    height:120px;
-}
-    
-}
+        width:120px;
+        height:120px;
+    }
 
-.hero-content p{
-    max-width:100%;
-}
+    .hero-content p{
+        max-width:100%;
+    }
 
-.funding{
-    max-width:100%;
-}
-    
-.menu-toggle{
-    display:block;
+    .funding{
+        max-width:100%;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    ...
 }
 
 #home{
@@ -891,8 +895,4 @@ html,
 body{
     overflow-x:hidden;
 }
-.menu-toggle{
-    display:block !important;
-    color:red !important;
-    font-size:40px !important;
-}
+
