@@ -840,6 +840,13 @@ body{
         width:250px;
     }
 }
+@media (max-width:768px){
+
+    body{
+        border:10px solid red !important;
+    }
+
+}
 @media (max-width:480px){
 
     .hero-content h1{
