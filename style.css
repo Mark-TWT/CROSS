@@ -891,3 +891,8 @@ html,
 body{
     overflow-x:hidden;
 }
+.menu-toggle{
+    display:block !important;
+    color:red !important;
+    font-size:40px !important;
+}
