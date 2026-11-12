@@ -691,7 +691,6 @@ nav a:hover::after{
     .hero-content{
         width:100%;
     }
-
     .approach-card:nth-child(2) .approach-icon{
         width:120px;
         height:120px;
@@ -709,8 +708,6 @@ nav a:hover::after{
         display:block;
     }
 
-    ...
-}
 
 #home{
     padding-top:120px;
