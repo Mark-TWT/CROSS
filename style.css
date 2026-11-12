@@ -175,14 +175,10 @@ nav a:hover::after{
     width:100%;
 }
 #project{
-
     background:#006682;
-
     color:white;
-
     min-height:100vh;
-
-    padding:100px 90px;
+    padding:100px 8%;
 }
 .project-container{
 
@@ -246,12 +242,9 @@ nav a:hover::after{
     color:#222;
 }
 #approach{
-
     background:#f5f5f5;
-
     min-height:100vh;
-
-    padding:100px 80px;
+    padding:100px 8%;
 }
 .approach-title{
 
@@ -647,12 +640,21 @@ nav a:hover::after{
     width:320px;
     max-width:100%;
 }
-@media (max-width:1200px){
+@media (max-width:1350px){
 
     .nav-links{
-        gap:20px;
+        gap:15px;
     }
 
+    nav a{
+        font-size:16px;
+    }
+
+    .logo{
+        font-size:44px;
+    }
+
+}
     .hero-content h1{
         font-size:48px;
     }
@@ -687,6 +689,10 @@ nav a:hover::after{
 @media (max-width:768px){
 .hero-content{
     width:100%;
+    .approach-card:nth-child(2) .approach-icon{
+    width:120px;
+    height:120px;
+}
 }
 
 .hero-content p{
