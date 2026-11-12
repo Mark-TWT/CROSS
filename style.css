@@ -392,16 +392,11 @@ nav a:hover::after{
 }
 
 .benefit-card h3{
-    font-size:34px;
-    font-weight:400;
-    margin-bottom:15px;
-    line-height:1.2;
+    font-size:clamp(22px,2vw,34px);
 }
 
 .benefit-card p{
-    font-size:24px;
-    color:rgba(255,255,255,0.95);
-    line-height:1.5;
+    font-size:clamp(16px,1.4vw,24px);
 }
 
 /* δεύτερη σειρά */
@@ -654,7 +649,6 @@ nav a:hover::after{
         font-size:44px;
     }
 
-}
     .hero-content h1{
         font-size:48px;
     }
