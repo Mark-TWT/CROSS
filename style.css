@@ -3,11 +3,29 @@
    Κύριο χρώμα: #006682
    ========================================================= */
 
+/* Segoe Light (300) και Segoe Semibold (600).
+   Το Segoe UI υπάρχει σε Windows· σε Mac/κινητά χρησιμοποιείται
+   η πιο κοντινή γραμματοσειρά του συστήματος. */
+@font-face{
+    font-family:"Segoe";
+    src:local("Segoe UI Light"), local("SegoeUI-Light");
+    font-weight:300;
+    font-style:normal;
+}
+@font-face{
+    font-family:"Segoe";
+    src:local("Segoe UI Semibold"), local("SegoeUI-Semibold");
+    font-weight:600;
+    font-style:normal;
+}
+
 :root{
     --primary:#006682;
     --primary-dark:#004d63;
     --text:#222;
-    --nav-height:96px;
+    --nav-height:80px;
+    --section-y:72px;
+    --font:"Segoe", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
 *{
@@ -26,9 +44,18 @@ body{
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:var(--font);
+    font-weight:300;
     background:#f7f9fc;
     color:var(--text);
+}
+
+h1, h2, h3, h4, strong, b{
+    font-weight:600;
+}
+
+button, select, input{
+    font-family:inherit;
 }
 
 img{
@@ -53,7 +80,7 @@ nav{
     left:0;
     width:100%;
     background:white;
-    padding:20px 5%;
+    padding:14px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -61,8 +88,8 @@ nav{
 }
 
 .logo{
-    font-size:clamp(28px,4vw,52px);
-    font-weight:100;
+    font-size:clamp(28px,3.5vw,44px);
+    font-weight:300;
     letter-spacing:1px;
     color:#111;
 }
@@ -101,18 +128,96 @@ nav a:hover::after{
 }
 
 .language-switcher{
-    display:flex;
-    gap:10px;
+    position:relative;
     margin-left:10px;
 }
 
-.language-switcher select{
-    font-size:15px;
-    padding:4px 6px;
+.lang-button{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
     border:1px solid #ccc;
-    border-radius:4px;
+    border-radius:6px;
     background:white;
+    color:var(--text);
+    font-size:15px;
+    font-weight:600;
     cursor:pointer;
+    transition:border-color 0.3s;
+}
+
+.lang-button:hover{
+    border-color:var(--primary);
+}
+
+.lang-caret{
+    font-size:11px;
+    transition:transform 0.2s;
+}
+
+.lang-button[aria-expanded="true"] .lang-caret{
+    transform:rotate(180deg);
+}
+
+.lang-menu{
+    position:absolute;
+    top:calc(100% + 6px);
+    right:0;
+    min-width:150px;
+    list-style:none;
+    background:white;
+    border:1px solid #ddd;
+    border-radius:6px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    padding:4px 0;
+    z-index:1100;
+}
+
+.lang-menu[hidden]{
+    display:none;
+}
+
+.lang-menu li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 14px;
+    font-size:15px;
+    cursor:pointer;
+    color:var(--text);
+}
+
+.lang-menu li:hover,
+.lang-menu li:focus{
+    background:#eef5f7;
+    outline:none;
+}
+
+.lang-menu li[aria-selected="true"]{
+    font-weight:600;
+    color:var(--primary);
+}
+
+/* Σημαίες ως εικόνες SVG, ώστε να φαίνονται σε όλα τα συστήματα
+   (τα emoji σημαιών δεν εμφανίζονται στα Windows) */
+.flag{
+    display:inline-block;
+    flex-shrink:0;
+    width:24px;
+    height:16px;
+    border-radius:2px;
+    background-size:cover;
+    background-position:center;
+    box-shadow:0 0 0 1px rgba(0,0,0,0.15);
+}
+
+.flag-en{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3CclipPath id='a'%3E%3Cpath d='M0 0v30h60V0z'/%3E%3C/clipPath%3E%3CclipPath id='b'%3E%3Cpath d='M30 15h30v15zv15H0zH0V0zV0h30z'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M0 0v30h60V0z' fill='%23012169'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' stroke='%23fff' stroke-width='6'/%3E%3Cpath d='M0 0l60 30m0-30L0 30' clip-path='url(%23b)' stroke='%23C8102E' stroke-width='4'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23fff' stroke-width='10'/%3E%3Cpath d='M30 0v30M0 15h60' stroke='%23C8102E' stroke-width='6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.flag-de{
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 5 3'%3E%3Cpath d='M0 0h5v3H0z'/%3E%3Cpath d='M0 1h5v2H0z' fill='%23D00'/%3E%3Cpath d='M0 2h5v1H0z' fill='%23FFCE00'/%3E%3C/svg%3E");
 }
 
 .menu-toggle{
@@ -128,8 +233,7 @@ nav a:hover::after{
 /* ---------- SECTIONS (κοινά) ---------- */
 
 section{
-    min-height:100vh;
-    padding:120px 8%;
+    padding:var(--section-y) 8%;
 }
 
 h2{
@@ -144,7 +248,8 @@ h2{
     display:flex;
     align-items:center;
     text-align:center;
-    padding-top:calc(var(--nav-height) + 40px);
+    min-height:80vh;
+    padding-top:calc(var(--nav-height) + 32px);
     background:radial-gradient(circle at center, #ffffff, #f7f9fc);
 }
 
@@ -158,7 +263,7 @@ h2{
     font-size:clamp(26px,5vw,54px);
     font-weight:300;
     line-height:1.2;
-    margin-bottom:clamp(25px,4vw,40px);
+    margin-bottom:clamp(16px,2.5vw,28px);
     color:var(--text);
 }
 
@@ -166,12 +271,12 @@ h2{
     font-size:clamp(18px,2.4vw,28px);
     font-weight:300;
     color:#333;
-    margin-bottom:clamp(35px,6vw,70px);
+    margin-bottom:clamp(20px,3vw,36px);
 }
 
 .hero-content p{
     max-width:850px;
-    margin:0 auto clamp(50px,10vw,140px);
+    margin:0 auto clamp(28px,4vw,56px);
     font-size:clamp(16px,1.5vw,18px);
     line-height:1.8;
     color:#444;
@@ -190,7 +295,7 @@ h2{
 #project{
     background:var(--primary);
     color:white;
-    padding:100px 8%;
+    padding:var(--section-y) 8%;
 }
 
 .project-container{
@@ -203,17 +308,17 @@ h2{
     color:white;
     font-size:clamp(32px,4.5vw,54px);
     font-weight:300;
-    margin-bottom:clamp(50px,8vw,100px);
+    margin-bottom:clamp(32px,4vw,56px);
 }
 
 .project-block{
-    margin-bottom:clamp(50px,7vw,90px);
+    margin-bottom:clamp(28px,4vw,48px);
 }
 
 .project-block h3{
     font-size:clamp(24px,3.2vw,40px);
     font-weight:300;
-    margin-bottom:25px;
+    margin-bottom:12px;
     color:white;
 }
 
@@ -222,14 +327,14 @@ h2{
     line-height:1.7;
     color:white;
     max-width:1200px;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
 /* ---------- APPROACH ---------- */
 
 #approach{
     background:#f5f5f5;
-    padding:100px 8%;
+    padding:var(--section-y) 8%;
 }
 
 .approach-title{
@@ -237,27 +342,27 @@ h2{
     font-size:clamp(32px,4.5vw,56px);
     font-weight:300;
     color:#111;
-    margin-bottom:40px;
+    margin-bottom:16px;
 }
 
 .approach-intro{
     text-align:center;
     font-size:clamp(18px,2.2vw,26px);
     color:#333;
-    margin-bottom:clamp(50px,8vw,100px);
+    margin-bottom:clamp(32px,4vw,56px);
 }
 
 .approach-grid{
     display:grid;
     grid-template-columns:repeat(5,1fr);
-    gap:40px;
+    gap:28px;
     align-items:start;
-    margin-bottom:clamp(60px,10vw,120px);
+    margin-bottom:clamp(36px,5vw,64px);
 }
 
 .approach-card{
     text-align:left;
-    padding:20px;
+    padding:12px;
     transition:transform 0.3s ease;
 }
 
@@ -269,7 +374,7 @@ h2{
     width:110px;
     height:110px;
     object-fit:contain;
-    margin:0 auto 25px auto;
+    margin:0 auto 16px auto;
 }
 
 /* το AI.png έχει περισσότερο κενό γύρω του */
@@ -283,8 +388,8 @@ h2{
     color:var(--primary);
     font-size:clamp(18px,1.6vw,22px);
     font-weight:600;
-    margin-bottom:20px;
-    min-height:65px;
+    margin-bottom:12px;
+    min-height:56px;
 }
 
 .approach-card p{
@@ -302,8 +407,8 @@ h2{
 .approach-footer h3{
     font-size:clamp(26px,3.2vw,40px);
     color:#111;
-    margin-bottom:20px;
-    font-weight:500;
+    margin-bottom:12px;
+    font-weight:600;
 }
 
 .approach-footer p{
@@ -316,7 +421,7 @@ h2{
 
 .benefits{
     background:var(--primary);
-    padding:120px 8%;
+    padding:var(--section-y) 8%;
     color:white;
     min-height:auto;
 }
@@ -329,8 +434,8 @@ h2{
 .benefits h2{
     text-align:center;
     font-size:clamp(32px,3.5vw,42px);
-    font-weight:500;
-    margin-bottom:clamp(50px,7vw,80px);
+    font-weight:600;
+    margin-bottom:clamp(32px,4vw,48px);
     color:white;
 }
 
@@ -373,12 +478,13 @@ h2{
     width:140px;
     height:140px;
     object-fit:contain;
-    margin:0 auto 25px auto;
+    margin:0 auto 16px auto;
 }
 
 .benefit-card h3{
+    font-weight:600;
     font-size:clamp(20px,1.8vw,28px);
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
 .benefit-card p{
@@ -418,7 +524,7 @@ h2{
     display:flex;
     justify-content:center;
     gap:12px;
-    margin-top:50px;
+    margin-top:28px;
 }
 
 .carousel-dot{
@@ -441,7 +547,7 @@ h2{
 
 #news{
     background:#f5f5f5;
-    padding:120px 8%;
+    padding:var(--section-y) 8%;
 }
 
 .news-container{
@@ -454,7 +560,7 @@ h2{
     font-size:clamp(32px,4.5vw,56px);
     font-weight:300;
     color:#111;
-    margin-bottom:clamp(50px,9vw,120px);
+    margin-bottom:clamp(32px,4vw,56px);
 }
 
 .news-item{
@@ -464,9 +570,9 @@ h2{
 
 .news-item h3{
     font-size:clamp(22px,3vw,38px);
-    font-weight:400;
+    font-weight:300;
     color:#111;
-    margin-bottom:20px;
+    margin-bottom:10px;
     padding-left:40px;
     position:relative;
     line-height:1.4;
@@ -482,7 +588,7 @@ h2{
 .news-meta{
     font-size:clamp(16px,2.2vw,28px);
     color:#555;
-    margin-bottom:25px;
+    margin-bottom:14px;
     padding-left:40px;
 }
 
@@ -491,14 +597,14 @@ h2{
     line-height:1.8;
     color:#333;
     padding-left:40px;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
 /* ---------- PUBLICATIONS ---------- */
 
 #publications{
     background:var(--primary);
-    padding:120px 8%;
+    padding:var(--section-y) 8%;
 }
 
 .publications-container{
@@ -511,7 +617,7 @@ h2{
     color:white;
     font-size:clamp(32px,4vw,48px);
     font-weight:300;
-    margin-bottom:clamp(50px,7vw,90px);
+    margin-bottom:clamp(32px,4vw,56px);
 }
 
 .publication-item{
@@ -544,7 +650,7 @@ h2{
 
 #contact{
     background:#f5f5f5;
-    padding:120px 8%;
+    padding:var(--section-y) 8%;
 }
 
 .contact-container{
@@ -557,15 +663,15 @@ h2{
     font-size:clamp(32px,4vw,48px);
     font-weight:300;
     color:#111;
-    margin-bottom:clamp(50px,6vw,80px);
+    margin-bottom:clamp(32px,4vw,48px);
 }
 
 .contact-content{
     display:grid;
     grid-template-columns:1fr 1fr 1fr;
     align-items:center;
-    gap:60px;
-    margin-bottom:80px;
+    gap:40px;
+    margin-bottom:40px;
 }
 
 .contact-logo{
@@ -596,7 +702,7 @@ h2{
 }
 
 .contact-names{
-    margin-bottom:15px;
+    margin-bottom:8px;
 }
 
 .contact-slogan{
@@ -613,7 +719,7 @@ h2{
 
 .contact-funding{
     max-width:1000px;
-    margin:10px auto 20px auto;
+    margin:0 auto 12px auto;
     text-align:center;
     font-size:clamp(15px,1.4vw,18px);
     line-height:1.8;
@@ -654,11 +760,11 @@ h2{
 @media (max-width:1024px){
 
     :root{
-        --nav-height:72px;
+        --nav-height:64px;
     }
 
     nav{
-        padding:16px 30px;
+        padding:12px 30px;
     }
 
     .menu-toggle{
@@ -674,8 +780,8 @@ h2{
         background:white;
         flex-direction:column;
         align-items:center;
-        gap:20px;
-        padding:30px 0;
+        gap:14px;
+        padding:20px 0;
         box-shadow:0 8px 20px rgba(0,0,0,0.08);
         max-height:calc(100vh - var(--nav-height));
         overflow-y:auto;
@@ -691,6 +797,19 @@ h2{
 
     .language-switcher{
         margin-left:0;
+    }
+
+    /* Στο κινητό η λίστα ανοίγει μέσα στο menu, όχι από πάνω του */
+    .language-switcher{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .lang-menu{
+        position:static;
+        margin-top:8px;
+        box-shadow:none;
     }
 
     .approach-grid{
@@ -713,11 +832,15 @@ h2{
     #news,
     #publications,
     #contact{
-        padding:80px 24px;
+        padding:var(--section-y) 24px;
+    }
+
+    :root{
+        --section-y:52px;
     }
 
     #home{
-        padding-top:calc(var(--nav-height) + 40px);
+        padding-top:calc(var(--nav-height) + 24px);
     }
 
     section{
@@ -725,7 +848,7 @@ h2{
     }
 
     #home{
-        min-height:100vh;
+        min-height:auto;
     }
 
     .approach-grid{
@@ -832,4 +955,3 @@ h2{
         animation:none !important;
     }
 }
-
