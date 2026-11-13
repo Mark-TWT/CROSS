@@ -331,6 +331,21 @@ h2{
     animation:hero-ripple 1s ease-out forwards;
 }
 
+/* "CROSS" μόνο του, μεγάλο, και από κάτω το πλήρες όνομα */
+.hero-name{
+    font-size:calc(var(--fs-hero) * 2);
+    font-weight:700;
+    line-height:1;
+    letter-spacing:4px;
+    color:var(--text);
+}
+
+.hero-fullname{
+    font-size:var(--fs-hero);
+    font-weight:700;
+    line-height:1.2;
+}
+
 @keyframes hero-orbit{
     to{ transform:rotate(360deg); }
 }
@@ -341,6 +356,10 @@ h2{
 }
 
 .hero-content h1{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
     font-size:var(--fs-hero);
     font-weight:700;
     line-height:1.2;
@@ -462,10 +481,11 @@ h2{
 .approach-card:nth-child(2) .approach-icon{
     width:180px;
     height:180px;
-    margin:-35px auto -10px auto;
+    margin:-35px auto -19px auto;   /* πιάνει τον ίδιο χώρο με τα άλλα εικονίδια, ώστε οι τίτλοι να ευθυγραμμίζονται */
 }
 
 .approach-card h3{
+    text-align:center;
     color:var(--primary);
     font-size:var(--fs-subtitle);
     font-weight:600;
@@ -786,11 +806,15 @@ h2{
     margin-bottom:8px;
 }
 
+/* Δεξιά στήλη: Invest BW πάνω, WE KNOW HOW πιο κάτω */
 .contact-slogan{
     justify-self:end;
+    align-self:stretch;
     display:flex;
-    justify-content:center;
+    flex-direction:column;
+    justify-content:space-between;
     align-items:center;
+    gap:40px;
 }
 
 .contact-slogan img{
@@ -805,12 +829,6 @@ h2{
     font-size:clamp(15px,1.4vw,18px);
     line-height:1.8;
     color:#555;
-}
-
-.invest-logo img{
-    width:380px;
-    max-width:100%;
-    margin:0 auto;
 }
 
 /* =========================================================
@@ -834,6 +852,11 @@ h2{
     .contact-details,
     .contact-slogan{
         justify-self:center;
+    }
+
+    .contact-slogan{
+        justify-content:center;
+        gap:28px;
     }
 }
 
@@ -992,8 +1015,7 @@ h2{
     }
 
     .contact-logo img,
-    .contact-slogan img,
-    .invest-logo img{
+    .contact-slogan img{
         width:250px;
     }
 }
@@ -1027,8 +1049,7 @@ h2{
     }
 
     .contact-logo img,
-    .contact-slogan img,
-    .invest-logo img{
+    .contact-slogan img{
         width:200px;
     }
 }
