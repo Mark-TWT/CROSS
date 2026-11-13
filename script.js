@@ -208,8 +208,7 @@ function changeLanguage(language){
     });
 
     document.documentElement.lang = language;
-    document.getElementById("language-select").value = language;
-    document.getElementById("language-select").setAttribute("aria-label", t("languageLabel"));
+    updateLanguageButton(language);
 
     // Αποθήκευση επιλογής ώστε να μένει και στην επόμενη επίσκεψη
     try { localStorage.setItem("cross-language", language); } catch (e) {}
@@ -218,8 +217,70 @@ function changeLanguage(language){
     document.dispatchEvent(new CustomEvent("languagechange"));
 }
 
-document.getElementById("language-select").addEventListener("change", e => {
-    changeLanguage(e.target.value);
+/* ---------- Dropdown γλώσσας με σημαίες ---------- */
+
+const langButton = document.getElementById("lang-button");
+const langMenu = document.getElementById("lang-menu");
+const langOptions = Array.from(langMenu.querySelectorAll("[data-lang]"));
+
+function updateLanguageButton(language){
+    document.getElementById("lang-current-flag").className = "flag flag-" + language;
+    document.getElementById("lang-current-code").textContent = language.toUpperCase();
+    langButton.setAttribute("aria-label", t("languageLabel") + ": " + language.toUpperCase());
+
+    langOptions.forEach(option => {
+        option.setAttribute("aria-selected", option.dataset.lang === language);
+    });
+}
+
+function openLangMenu(){
+    langMenu.hidden = false;
+    langButton.setAttribute("aria-expanded", "true");
+    const selected = langOptions.find(o => o.getAttribute("aria-selected") === "true") || langOptions[0];
+    selected.focus();
+}
+
+function closeLangMenu(returnFocus){
+    langMenu.hidden = true;
+    langButton.setAttribute("aria-expanded", "false");
+    if (returnFocus) langButton.focus();
+}
+
+langButton.addEventListener("click", () => {
+    langMenu.hidden ? openLangMenu() : closeLangMenu(false);
+});
+
+langOptions.forEach(option => {
+    option.addEventListener("click", () => {
+        changeLanguage(option.dataset.lang);
+        closeLangMenu(true);
+    });
+});
+
+// Πλοήγηση με πληκτρολόγιο
+langMenu.addEventListener("keydown", e => {
+    const i = langOptions.indexOf(document.activeElement);
+
+    if (e.key === "ArrowDown"){
+        e.preventDefault();
+        langOptions[(i + 1) % langOptions.length].focus();
+    } else if (e.key === "ArrowUp"){
+        e.preventDefault();
+        langOptions[(i - 1 + langOptions.length) % langOptions.length].focus();
+    } else if (e.key === "Enter" || e.key === " "){
+        e.preventDefault();
+        if (i >= 0){
+            changeLanguage(langOptions[i].dataset.lang);
+            closeLangMenu(true);
+        }
+    } else if (e.key === "Escape"){
+        closeLangMenu(true);
+    }
+});
+
+// Κλείνει όταν πατηθεί κλικ έξω από το dropdown
+document.addEventListener("click", e => {
+    if (!e.target.closest("#language-switcher")) closeLangMenu(false);
 });
 
 /* ---------- Mobile menu ---------- */
@@ -394,6 +455,83 @@ window.addEventListener("resize", () => {
     labelSlides();
     buildDots();
     startAutoplay();
+
+})();
+
+/* ---------- Διαδραστικός κύκλος στο home ---------- */
+
+(function initHeroCircle(){
+
+    const home = document.getElementById("home");
+    const visual = document.getElementById("hero-visual");
+    const circle = document.getElementById("hero-circle");
+    if (!home || !visual || !circle) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const MAX_SHIFT = 45;   // πόσα px μπορεί να μετακινηθεί ο κύκλος
+    const EASE = 0.08;      // πόσο "μαλακά" ακολουθεί (μικρότερο = πιο αργά)
+
+    let target = { x: 0, y: 0, s: 1 };
+    let current = { x: 0, y: 0, s: 1 };
+    let running = false;
+
+    function animate(){
+        current.x += (target.x - current.x) * EASE;
+        current.y += (target.y - current.y) * EASE;
+        current.s += (target.s - current.s) * EASE;
+
+        visual.style.setProperty("--x", current.x.toFixed(2) + "px");
+        visual.style.setProperty("--y", current.y.toFixed(2) + "px");
+        visual.style.setProperty("--s", current.s.toFixed(4));
+
+        const settled =
+            Math.abs(target.x - current.x) < 0.1 &&
+            Math.abs(target.y - current.y) < 0.1 &&
+            Math.abs(target.s - current.s) < 0.001;
+
+        if (settled){ running = false; return; }
+        requestAnimationFrame(animate);
+    }
+
+    function kick(){
+        if (!running){ running = true; requestAnimationFrame(animate); }
+    }
+
+    if (!reduceMotion){
+
+        // Ο κύκλος "κοιτάζει" προς το ποντίκι / το δάχτυλο
+        home.addEventListener("pointermove", e => {
+            const r = visual.getBoundingClientRect();
+            const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+            const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+            target.x = Math.max(-1, Math.min(1, dx)) * MAX_SHIFT;
+            target.y = Math.max(-1, Math.min(1, dy)) * MAX_SHIFT;
+            kick();
+        });
+
+        home.addEventListener("pointerleave", () => {
+            target.x = 0; target.y = 0; target.s = 1;
+            kick();
+        });
+
+        circle.addEventListener("pointerenter", () => { target.s = 1.07; kick(); });
+        circle.addEventListener("pointerleave", () => { target.s = 1; kick(); });
+    }
+
+    // Κλικ / πάτημα: κύμα που απλώνεται από τον κύκλο
+    circle.addEventListener("click", () => {
+        if (reduceMotion) return;
+        const ripple = document.createElement("span");
+        ripple.className = "hero-ripple";
+        // ξεκινά από εκεί που βρίσκεται ο κύκλος εκείνη τη στιγμή
+        ripple.style.translate = current.x + "px " + current.y + "px";
+        visual.appendChild(ripple);
+        ripple.addEventListener("animationend", () => ripple.remove());
+
+        target.s = 0.94; kick();
+        setTimeout(() => { target.s = circle.matches(":hover") ? 1.07 : 1; kick(); }, 150);
+    });
 
 })();
 
