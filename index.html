@@ -16,10 +16,10 @@
     <div class="logo">
         CROSS
     </div>
-<div class="menu-toggle" id="menu-toggle">
-☰
-</div>
-    <div class="nav-links">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        ☰
+    </button>
+    <div class="nav-links" id="nav-links">
         <a id="nav-home" href="#home">Home</a>
         <a id="nav-project" href="#project">Project</a>
         <a id="nav-approach" href="#approach">Approach</a>
@@ -44,12 +44,6 @@
 </nav>
 
   <section id="home">
-
-    <img
-        src="robot-hand.png"
-        alt="Robot Hand"
-        class="robot-hand"
-    >
 
     <div class="hero-content">
 
@@ -244,53 +238,47 @@
 
         <h2>Benefits</h2>
 
-        <div class="benefits-grid">
+        <div class="carousel" id="benefits-carousel" aria-roledescription="carousel" aria-label="Benefits">
 
-            <div class="benefit-card">
-    <img src="images/speedometer.png" alt="">
-    <h3>Faster planning and evaluation</h3>
-                <p>
-                    Automation replaces many manual, iterative
-                    steps in planning and safety validation.
-                </p>
-            </div>
-<div class="benefit-card">
-    <img src="images/people.png" alt="">
-    <h3>Accessible to non-experts</h3>
-                <p>
-                    A description in natural language is
-                    enough to create and assess a scenario.
-                </p>
+            <button class="carousel-btn carousel-prev" type="button" aria-label="Previous benefit">&#8249;</button>
+
+            <div class="benefits-track" tabindex="0">
+
+                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                    <img src="images/speedometer.png" alt="">
+                    <h3>Faster planning and evaluation</h3>
+                    <p>Automation replaces many manual, iterative steps in planning and safety validation.</p>
+                </div>
+
+                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="2 of 5">
+                    <img src="images/people.png" alt="">
+                    <h3>Accessible to non-experts</h3>
+                    <p>A description in natural language is enough to create and assess a scenario.</p>
+                </div>
+
+                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="3 of 5">
+                    <img src="images/download-arrow.png" alt="">
+                    <h3>Lower costs, especially for SMEs</h3>
+                    <p>Less expert effort and shorter projects make collaborative robots affordable for more companies.</p>
+                </div>
+
+                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="4 of 5">
+                    <img src="images/lock.png" alt="">
+                    <h3>No vendor lock-in</h3>
+                    <p>Open standards and compatibility with many simulation tools keep users independent of any single manufacturer.</p>
+                </div>
+
+                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="5 of 5">
+                    <img src="images/dashboard.png" alt="">
+                    <h3>Understandable results</h3>
+                    <p>Clear visualizations and scores support informed, transparent decisions.</p>
+                </div>
+
             </div>
 
-           <div class="benefit-card">
-    <img src="images/download-arrow.png" alt="">
-    <h3>Lower costs, especially for SMEs</h3>
-                <p>
-                    Less expert effort and shorter projects
-                    make collaborative robots affordable
-                    for more companies.
-                </p>
-            </div>
+            <button class="carousel-btn carousel-next" type="button" aria-label="Next benefit">&#8250;</button>
 
-            <div class="benefit-card">
-    <img src="images/lock.png" alt="">
-    <h3>No vendor lock-in</h3>
-                <p>
-                    Open standards and compatibility with
-                    many simulation tools keep users
-                    independent of any single manufacturer.
-                </p>
-            </div>
-
-            <div class="benefit-card">
-    <img src="images/dashboard.png" alt="">
-    <h3>Understandable results</h3>
-                <p>
-                    Clear visualizations and scores support
-                    informed, transparent decisions.
-                </p>
-            </div>
+            <div class="carousel-dots" role="tablist" aria-label="Choose slide"></div>
 
         </div>
 
@@ -367,9 +355,9 @@
 
                 DOI:
 
-                <a href="#">
-                    10.1007/978-3-032-16889-4_75
-                </a>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-032-16889-4_75"
+                   target="_blank"
+                   rel="noopener noreferrer">10.1007/978-3-032-16889-4_75</a>
 
                 (Open Access).
             </p>
@@ -446,4 +434,3 @@
 
 </body>
 </html>
-
