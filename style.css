@@ -1,108 +1,182 @@
+/* =========================================================
+   CROSS — style.css
+   Κύριο χρώμα: #006682
+   ========================================================= */
+
+:root{
+    --primary:#006682;
+    --primary-dark:#004d63;
+    --text:#222;
+    --nav-height:96px;
+}
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-img{
-    max-width:100%;
-    height:auto;
-    display:block;
-}
+
 html{
     scroll-behavior:smooth;
+}
+
+html,
+body{
+    overflow-x:hidden;
 }
 
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:#f7f9fc;
+    color:var(--text);
 }
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+.benefits-track:focus-visible{
+    outline:3px solid var(--primary);
+    outline-offset:3px;
+}
+
+/* ---------- NAV ---------- */
 
 nav{
     position:fixed;
     top:0;
     left:0;
-
     width:100%;
-
     background:white;
-
-    padding:30px 60px;
-
+    padding:20px 5%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-
     z-index:1000;
 }
 
+.logo{
+    font-size:clamp(28px,4vw,52px);
+    font-weight:100;
+    letter-spacing:1px;
+    color:#111;
+}
+
+.nav-links{
+    display:flex;
+    gap:clamp(15px,2.5vw,40px);
+    align-items:center;
+}
+
 nav a{
-    font-size:18px;
+    position:relative;
+    font-size:clamp(15px,1.3vw,18px);
     text-decoration:none;
-    color:#222;
-    transition:0.3s ease;
+    color:var(--text);
+    transition:color 0.3s ease;
 }
 
 nav a:hover{
-    color:#00a3e0;
+    color:var(--primary);
 }
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0%;
+    height:2px;
+    background:var(--primary);
+    transition:width 0.3s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+.language-switcher{
+    display:flex;
+    gap:10px;
+    margin-left:10px;
+}
+
+.language-switcher select{
+    font-size:15px;
+    padding:4px 6px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    background:white;
+    cursor:pointer;
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    font-size:32px;
+    line-height:1;
+    cursor:pointer;
+    color:#111;
+}
+
+/* ---------- SECTIONS (κοινά) ---------- */
 
 section{
     min-height:100vh;
-    padding:120px 10%;
-}
-
-#home{
-    min-height:100vh;
-    display:flex;
-    justify-content:flex-start;
-    align-items:center;
-    text-align:center;
-    padding-top:60px;
-
-    background:
-    radial-gradient(
-        circle at center,
-        #ffffff,
-        #f7f9fc
-    );
-}
-
-
-
-#home p{
-    font-size:28px;
+    padding:120px 8%;
 }
 
 h2{
-    color:#003b73;
-    font-size:48px;
+    color:var(--primary);
+    font-size:clamp(32px,4vw,48px);
 }
+
+/* ---------- HOME ---------- */
+
+#home{
+    position:relative;
+    display:flex;
+    align-items:center;
+    text-align:center;
+    padding-top:calc(var(--nav-height) + 40px);
+    background:radial-gradient(circle at center, #ffffff, #f7f9fc);
+}
+
 .hero-content{
     width:100%;
     max-width:1000px;
     margin:0 auto;
 }
+
 .hero-content h1{
-    font-size:clamp(28px,5vw,54px);
+    font-size:clamp(26px,5vw,54px);
     font-weight:300;
     line-height:1.2;
-    margin-bottom:40px;
-    color:#222;
+    margin-bottom:clamp(25px,4vw,40px);
+    color:var(--text);
 }
+
 .hero-content h2{
-    font-size:28px;
+    font-size:clamp(18px,2.4vw,28px);
     font-weight:300;
     color:#333;
-    margin-bottom:70px;
+    margin-bottom:clamp(35px,6vw,70px);
 }
+
 .hero-content p{
     max-width:850px;
-    margin:0 auto;
-    font-size:18px;
+    margin:0 auto clamp(50px,10vw,140px);
+    font-size:clamp(16px,1.5vw,18px);
     line-height:1.8;
     color:#444;
-    margin-bottom:140px;
 }
+
 .funding{
     font-size:14px;
     line-height:1.8;
@@ -111,328 +185,262 @@ h2{
     margin:0 auto;
 }
 
-.logo{
-    font-size:58px;
-    font-weight:100;
-    letter-spacing:1px;
-    color:#111;
-}
-.nav-links{
-    display:flex;
-    gap:40px;
-    align-items:center;
-}
-#home{
-    position:relative;
-}
-.robot-hand{
-    position:absolute;
-    left:40px;
-    bottom:70px;
+/* ---------- PROJECT ---------- */
 
-    width:320px;
-
-    z-index:1;
-
-    animation: float 4s ease-in-out infinite;
-}
-@keyframes float {
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-25px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-}
-nav a{
-    position:relative;
-}
-nav a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-8px;
-
-    width:0%;
-
-    height:2px;
-
-    background:#0f8bff;
-
-    transition:0.3s;
-}
-nav a:hover::after{
-
-    width:100%;
-}
 #project{
-    background:#006682;
+    background:var(--primary);
     color:white;
-    min-height:100vh;
     padding:100px 8%;
 }
+
 .project-container{
-
     max-width:1200px;
-
     margin:0 auto;
 }
+
 .project-title{
-
     text-align:center;
-
     color:white;
-
-    font-size:54px;
-
+    font-size:clamp(32px,4.5vw,54px);
     font-weight:300;
-
-    margin-bottom:100px;
+    margin-bottom:clamp(50px,8vw,100px);
 }
+
 .project-block{
-
-    margin-bottom:90px;
+    margin-bottom:clamp(50px,7vw,90px);
 }
+
 .project-block h3{
-
-    font-size:40px;
-
+    font-size:clamp(24px,3.2vw,40px);
     font-weight:300;
-
     margin-bottom:25px;
-
     color:white;
 }
+
 .project-block p{
-
-    font-size:24px;
-
+    font-size:clamp(17px,2vw,24px);
     line-height:1.7;
-
     color:white;
-
     max-width:1200px;
-
     margin-bottom:15px;
 }
-.language-switcher{
 
-    display:flex;
-    gap:10px;
-    margin-left:20px;
-}
-.language-switcher button{
+/* ---------- APPROACH ---------- */
 
-    background:none;
-    border:none;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    color:#222;
-}
 #approach{
     background:#f5f5f5;
-    min-height:100vh;
     padding:100px 8%;
 }
+
 .approach-title{
-
     text-align:center;
-
-    font-size:56px;
-
+    font-size:clamp(32px,4.5vw,56px);
     font-weight:300;
-
     color:#111;
-
     margin-bottom:40px;
 }
+
 .approach-intro{
-
     text-align:center;
-
-    font-size:26px;
-
+    font-size:clamp(18px,2.2vw,26px);
     color:#333;
-
-    margin-bottom:100px;
+    margin-bottom:clamp(50px,8vw,100px);
 }
+
 .approach-grid{
-
     display:grid;
-
-    grid-template-columns:repeat(5,minmax(220px,1fr));
-
-    gap:50px;
-
+    grid-template-columns:repeat(5,1fr);
+    gap:40px;
     align-items:start;
-
-    margin-bottom:120px;
+    margin-bottom:clamp(60px,10vw,120px);
 }
+
 .approach-card{
-
-    text-align:center;
-
-    transition:0.3s ease;
-
+    text-align:left;
     padding:20px;
+    transition:transform 0.3s ease;
 }
-.approach-card h3{
 
-    color:#006682;
-
-    font-size:22px;
-
-    font-weight:600;
-
-    margin-bottom:20px;
-
-    min-height:65px;
+.approach-card:hover{
+    transform:translateY(-8px);
 }
-.approach-card p{
 
-    color:#444;
-
-    font-size:14px;
-
-    line-height:1.7;
-}
-.approach-footer{
-
-    text-align:center;
-
-    max-width:1100px;
-
-    margin:0 auto;
-}
-.approach-footer h3{
-
-    font-size:40px;
-
-    color:#111;
-
-    margin-bottom:20px;
-
-    font-weight:500;
-}
-.approach-footer p{
-
-    font-size:22px;
-
-    line-height:1.8;
-
-    color:#333;
-}
 .approach-icon{
     width:110px;
     height:110px;
     object-fit:contain;
-    display:block;
     margin:0 auto 25px auto;
 }
 
+/* το AI.png έχει περισσότερο κενό γύρω του */
 .approach-card:nth-child(2) .approach-icon{
     width:180px;
     height:180px;
+    margin:-35px auto -10px auto;
 }
-.approach-card{
 
-    text-align:left;
-
-    transition:0.3s ease;
+.approach-card h3{
+    color:var(--primary);
+    font-size:clamp(18px,1.6vw,22px);
+    font-weight:600;
+    margin-bottom:20px;
+    min-height:65px;
 }
-.approach-card:hover{
 
-    transform:translateY(-8px);
+.approach-card p{
+    color:#444;
+    font-size:15px;
+    line-height:1.7;
 }
-/* BENEFITS */
+
+.approach-footer{
+    text-align:center;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.approach-footer h3{
+    font-size:clamp(26px,3.2vw,40px);
+    color:#111;
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.approach-footer p{
+    font-size:clamp(17px,1.8vw,22px);
+    line-height:1.8;
+    color:#333;
+}
+
+/* ---------- BENEFITS (carousel) ---------- */
 
 .benefits{
-    background:#0C6C83;
+    background:var(--primary);
     padding:120px 8%;
     color:white;
+    min-height:auto;
+}
+
+.benefits .container{
+    max-width:1300px;
+    margin:0 auto;
 }
 
 .benefits h2{
     text-align:center;
-    font-size:42px;
+    font-size:clamp(32px,3.5vw,42px);
     font-weight:500;
-    margin-bottom:80px;
+    margin-bottom:clamp(50px,7vw,80px);
     color:white;
 }
 
-.benefits-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:100px 40px;
+.carousel{
+    position:relative;
+    padding:0 64px;
+}
+
+.benefits-track{
+    --per-view:3;
+    --gap:40px;
+
+    display:flex;
+    gap:var(--gap);
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    position:relative;
+    padding:10px 0;
+}
+
+.benefits-track::-webkit-scrollbar{
+    display:none;
 }
 
 .benefit-card{
+    flex:0 0 calc((100% - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+    scroll-snap-align:start;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
     text-align:center;
-    max-width:350px;
+    padding:0 10px;
 }
 
 .benefit-card img{
     width:140px;
     height:140px;
     object-fit:contain;
-    display:block;
     margin:0 auto 25px auto;
 }
 
 .benefit-card h3{
-    font-size:clamp(22px,2vw,34px);
+    font-size:clamp(20px,1.8vw,28px);
+    margin-bottom:15px;
 }
 
 .benefit-card p{
-    font-size:clamp(16px,1.4vw,24px);
+    font-size:clamp(16px,1.3vw,20px);
+    line-height:1.6;
 }
 
-/* δεύτερη σειρά */
-
-.benefit-card:nth-child(1){
-    grid-column:1 / 3;
-}
-
-.benefit-card:nth-child(2){
-    grid-column:3 / 5;
-}
-
-.benefit-card:nth-child(3){
-    grid-column:5 / 7;
-}
-
-.benefit-card:nth-child(4){
-    grid-column:2 / 4;
-}
-
-.benefit-card:nth-child(5){
-    grid-column:4 / 6;
-}
-.benefit-card{
-    text-align:center;
-    max-width:350px;
-
+.carousel-btn{
+    position:absolute;
+    top:calc(50% - 30px);
+    transform:translateY(-50%);
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:2px solid white;
+    background:transparent;
+    color:white;
+    font-size:30px;
+    line-height:1;
+    cursor:pointer;
     display:flex;
-    flex-direction:column;
     align-items:center;
+    justify-content:center;
+    padding-bottom:4px;
+    transition:background 0.3s, color 0.3s;
 }
-/* NEWS */
+
+.carousel-btn:hover{
+    background:white;
+    color:var(--primary);
+}
+
+.carousel-prev{ left:0; }
+.carousel-next{ right:0; }
+
+.carousel-dots{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:50px;
+}
+
+.carousel-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    border:2px solid white;
+    background:transparent;
+    cursor:pointer;
+    padding:0;
+    transition:background 0.3s, transform 0.3s;
+}
+
+.carousel-dot.active{
+    background:white;
+    transform:scale(1.2);
+}
+
+/* ---------- NEWS ---------- */
 
 #news{
     background:#f5f5f5;
-    min-height:100vh;
     padding:120px 8%;
 }
 
@@ -443,10 +451,10 @@ nav a:hover::after{
 
 .news-title{
     text-align:center;
-    font-size:56px;
+    font-size:clamp(32px,4.5vw,56px);
     font-weight:300;
     color:#111;
-    margin-bottom:120px;
+    margin-bottom:clamp(50px,9vw,120px);
 }
 
 .news-item{
@@ -455,7 +463,7 @@ nav a:hover::after{
 }
 
 .news-item h3{
-    font-size:38px;
+    font-size:clamp(22px,3vw,38px);
     font-weight:400;
     color:#111;
     margin-bottom:20px;
@@ -472,24 +480,24 @@ nav a:hover::after{
 }
 
 .news-meta{
-    font-size:28px;
+    font-size:clamp(16px,2.2vw,28px);
     color:#555;
     margin-bottom:25px;
     padding-left:40px;
 }
 
 .news-item p{
-    font-size:24px;
+    font-size:clamp(17px,2vw,24px);
     line-height:1.8;
     color:#333;
     padding-left:40px;
     margin-bottom:15px;
 }
-/* PUBLICATIONS */
+
+/* ---------- PUBLICATIONS ---------- */
 
 #publications{
-    background:#0C6C83;
-    min-height:100vh;
+    background:var(--primary);
     padding:120px 8%;
 }
 
@@ -501,9 +509,9 @@ nav a:hover::after{
 .publications-title{
     text-align:center;
     color:white;
-    font-size:48px;
+    font-size:clamp(32px,4vw,48px);
     font-weight:300;
-    margin-bottom:90px;
+    margin-bottom:clamp(50px,7vw,90px);
 }
 
 .publication-item{
@@ -513,23 +521,29 @@ nav a:hover::after{
 
 .publication-item p{
     color:white;
-    font-size:24px;
+    font-size:clamp(17px,2vw,24px);
     line-height:1.7;
+    overflow-wrap:anywhere;
 }
 
 .publication-item a{
     color:white;
     text-decoration:underline;
+    text-underline-offset:3px;
+}
+
+.publication-item a:hover{
+    text-decoration-thickness:2px;
 }
 
 .publication-item em{
     font-style:italic;
 }
-/* CONTACT */
+
+/* ---------- CONTACT ---------- */
 
 #contact{
     background:#f5f5f5;
-    min-height:100vh;
     padding:120px 8%;
 }
 
@@ -540,10 +554,10 @@ nav a:hover::after{
 
 .contact-title{
     text-align:center;
-    font-size:48px;
+    font-size:clamp(32px,4vw,48px);
     font-weight:300;
     color:#111;
-    margin-bottom:80px;
+    margin-bottom:clamp(50px,6vw,80px);
 }
 
 .contact-content{
@@ -554,26 +568,31 @@ nav a:hover::after{
     margin-bottom:80px;
 }
 
+.contact-logo{
+    justify-self:start;
+}
+
 .contact-logo img{
     width:380px;
     max-width:100%;
     margin:0 auto;
 }
 
-
 .contact-details{
+    justify-self:center;
     text-align:center;
 }
 
 .contact-details p{
-    font-size:24px;
+    font-size:clamp(17px,1.8vw,24px);
     line-height:1.8;
     color:#333;
 }
 
 .contact-details a{
-    color:#5f8da1;
+    color:var(--primary);
     text-decoration:underline;
+    overflow-wrap:anywhere;
 }
 
 .contact-names{
@@ -581,34 +600,7 @@ nav a:hover::after{
 }
 
 .contact-slogan{
-    text-align:center;
-}
-
-.contact-slogan h3{
-    font-size:54px;
-    font-weight:300;
-    color:#333;
-}
-
-.contact-funding{
-    max-width:1000px;
-    margin:10px auto 20px auto;
-    text-align:center;
-    font-size:18px;
-    line-height:1.8;
-    color:#555;
-}
-
-.invest-logo{
-    margin-top:-40px;
-}
-
-.invest-logo img{
-    width:380px;
-    max-width:100%;
-    margin:0 auto;
-}
-.contact-slogan{
+    justify-self:end;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -618,60 +610,37 @@ nav a:hover::after{
     width:320px;
     max-width:100%;
 }
-.contact-logo{
-    justify-self:start;
-}
 
-.contact-details{
-    justify-self:center;
+.contact-funding{
+    max-width:1000px;
+    margin:10px auto 20px auto;
     text-align:center;
+    font-size:clamp(15px,1.4vw,18px);
+    line-height:1.8;
+    color:#555;
 }
 
-.contact-slogan{
-    justify-self:end;
-}
-
-.contact-slogan img{
-    width:320px;
+.invest-logo img{
+    width:380px;
     max-width:100%;
+    margin:0 auto;
 }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* Laptop / μικρά desktop */
 @media (max-width:1350px){
-
-    .nav-links{
-        gap:15px;
-    }
-
-    nav a{
-        font-size:16px;
-    }
-
-    .logo{
-        font-size:44px;
-    }
-
-    .hero-content h1{
-        font-size:48px;
-    }
 
     .approach-grid{
         grid-template-columns:repeat(3,1fr);
     }
 
-    .benefits-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .benefit-card:nth-child(1),
-    .benefit-card:nth-child(2),
-    .benefit-card:nth-child(3),
-    .benefit-card:nth-child(4),
-    .benefit-card:nth-child(5){
-        grid-column:auto;
-    }
-
     .contact-content{
         grid-template-columns:1fr;
         text-align:center;
+        gap:40px;
     }
 
     .contact-logo,
@@ -680,153 +649,133 @@ nav a:hover::after{
         justify-self:center;
     }
 }
-@media (max-width:768px){
-body{
-        background:red !important;
-    }
-    .hero-content{
-        width:100%;
-    }
-    .approach-card:nth-child(2) .approach-icon{
-        width:120px;
-        height:120px;
+
+/* Tablet: hamburger menu, 2 κάρτες στο carousel */
+@media (max-width:1024px){
+
+    :root{
+        --nav-height:72px;
     }
 
-    .hero-content p{
-        max-width:100%;
-    }
-
-    .funding{
-        max-width:100%;
+    nav{
+        padding:16px 30px;
     }
 
     .menu-toggle{
         display:block;
     }
 
-
-#home{
-    padding-top:120px;
-}
-.nav-links{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    width:100%;
-    background:white;
-
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    gap:20px;
-    padding:30px 0;
-
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-    .nav-links.active{
-    display:flex;
-}
-    section{
-        padding:100px 30px;
-    }
-
-  nav{
-    padding:20px;
-    flex-direction:row;
-    justify-content:space-between;
-    align-items:center;
-}
-
-
-.language-switcher{
-    margin-left:0;
-}
-    .logo{
-    font-size:28px;
-}
-
-.hero-content h1{
-    font-size:28px;
-    line-height:1.3;
-    margin-bottom:25px;
-}
-
-
-    .hero-content h2{
-        font-size:22px;
-        margin-bottom:40px;
-    }
-
-    .hero-content p{
-        font-size:17px;
-        margin-bottom:60px;
-    }
-
-    .robot-hand{
+    .nav-links{
         display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        padding:30px 0;
+        box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        max-height:calc(100vh - var(--nav-height));
+        overflow-y:auto;
     }
 
-    .project-title,
-    .approach-title,
-    .news-title,
-    .publications-title,
-    .contact-title{
-        font-size:40px;
+    .nav-links.active{
+        display:flex;
     }
 
-    .project-block h3{
-        font-size:30px;
-    }
-
-    .project-block p{
+    nav a{
         font-size:18px;
+    }
+
+    .language-switcher{
+        margin-left:0;
+    }
+
+    .approach-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .benefits-track{
+        --per-view:2;
+        --gap:30px;
+    }
+}
+
+/* Κινητό */
+@media (max-width:768px){
+
+    section,
+    #project,
+    #approach,
+    .benefits,
+    #news,
+    #publications,
+    #contact{
+        padding:80px 24px;
+    }
+
+    #home{
+        padding-top:calc(var(--nav-height) + 40px);
+    }
+
+    section{
+        min-height:auto;
+    }
+
+    #home{
+        min-height:100vh;
     }
 
     .approach-grid{
         grid-template-columns:1fr;
+        gap:20px;
     }
 
-    .benefits-grid{
-        grid-template-columns:1fr;
-        gap:60px;
+    .approach-card{
+        text-align:center;
+        padding:10px 0;
     }
 
-    .benefit-card{
-        max-width:none;
+    .approach-card h3{
+        min-height:0;
     }
 
-    .benefit-card h3{
-        font-size:28px;
+    .approach-card:nth-child(2) .approach-icon{
+        width:150px;
+        height:150px;
+        margin:-20px auto 0 auto;
     }
 
-    .benefit-card p{
-        font-size:18px;
+    .approach-card:hover{
+        transform:none;
     }
 
-    .news-item h3{
-        font-size:28px;
+    .benefits-track{
+        --per-view:1;
+        --gap:20px;
     }
 
-    .news-meta{
-        font-size:18px;
+    .carousel{
+        padding:0 48px;
     }
 
+    .carousel-btn{
+        width:38px;
+        height:38px;
+        font-size:24px;
+    }
+
+    .benefit-card img{
+        width:110px;
+        height:110px;
+    }
+
+    .news-item h3,
+    .news-meta,
     .news-item p{
-        font-size:18px;
-    }
-
-    .publication-item p{
-        font-size:18px;
-    }
-
-    .contact-details p{
-        font-size:18px;
-    }
-
-    .contact-funding{
-        font-size:15px;
+        padding-left:24px;
     }
 
     .contact-logo img,
@@ -835,65 +784,51 @@ body{
         width:250px;
     }
 }
-@media (max-width:768px){
 
-    body{
-        border:10px solid red !important;
-    }
-
-}
+/* Μικρά κινητά */
 @media (max-width:480px){
 
-    .hero-content h1{
-    font-size:26px;
-    line-height:1.25;
-}
-
-    .hero-content h2{
-        font-size:18px;
+    nav{
+        padding:14px 20px;
     }
 
-    .hero-content p{
-        font-size:16px;
+    section,
+    #project,
+    #approach,
+    .benefits,
+    #news,
+    #publications,
+    #contact{
+        padding-left:18px;
+        padding-right:18px;
     }
 
-    .project-title,
-    .approach-title,
-    .benefits h2,
-    .news-title,
-    .publications-title,
-    .contact-title{
-        font-size:32px;
+    .carousel{
+        padding:0 40px;
     }
 
-    .project-block h3{
-        font-size:24px;
+    .carousel-btn{
+        width:32px;
+        height:32px;
+        font-size:20px;
     }
 
-    .approach-intro{
-        font-size:18px;
-    }
-
-    .approach-footer h3{
-        font-size:28px;
-    }
-
-    .approach-footer p{
-        font-size:18px;
-    }
-
-    nav a{
-        font-size:15px;
+    .contact-logo img,
+    .contact-slogan img,
+    .invest-logo img{
+        width:200px;
     }
 }
-.menu-toggle{
-    display:none;
-    font-size:32px;
-    cursor:pointer;
-    color:#111;
-}
-html,
-body{
-    overflow-x:hidden;
-}
 
+@media (prefers-reduced-motion:reduce){
+
+    html,
+    .benefits-track{
+        scroll-behavior:auto;
+    }
+
+    *{
+        transition:none !important;
+        animation:none !important;
+    }
+}
