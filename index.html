@@ -5,253 +5,246 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CROSS | Collaborative Robotics Scenario Scoring</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <nav>
+
     <div class="logo">CROSS</div>
 
-    <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
-        ☰
-    </button>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">☰</button>
 
     <div class="nav-links" id="nav-links">
-        <a id="nav-home" href="#home" data-i18n="navHome">Home</a>
-        <a id="nav-project" href="#project" data-i18n="navProject">Project</a>
-        <a id="nav-approach" href="#approach" data-i18n="navApproach">Approach</a>
-        <a id="nav-benefits" href="#benefits" data-i18n="navBenefits">Benefits</a>
-        <a id="nav-news" href="#news" data-i18n="navNews">News</a>
-        <a id="nav-publications" href="#publications" data-i18n="navPublications">Publications</a>
-        <a id="nav-contact" href="#contact" data-i18n="navContact">Contact</a>
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#project" data-i18n="navProject">Project</a>
+        <a href="#approach" data-i18n="navApproach">Approach</a>
+        <a href="#benefits" data-i18n="navBenefits">Benefits</a>
+        <a href="#news" data-i18n="navNews">News</a>
+        <a href="#publications" data-i18n="navPublications">Publications</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
 
         <div class="language-switcher">
-            <select id="language-select" onchange="changeLanguage(this.value)">
+            <select id="language-select" aria-label="Language">
                 <option value="en">🇬🇧 EN</option>
                 <option value="de">🇩🇪 DE</option>
             </select>
         </div>
     </div>
+
 </nav>
 
+<!-- ================= HOME ================= -->
 <section id="home">
+
     <div class="hero-content">
 
-        <h1 data-i18n="heroTitle">CROSS: Collaborative Robotics Scenario Scoring</h1>
+        <h1>CROSS: Collaborative Robotics Scenario Scoring</h1>
 
         <h2 data-i18n="heroSubtitle">From natural language to scored robot scenarios.</h2>
 
         <p data-i18n="heroText">
-            CROSS develops a software toolchain that turns natural-language descriptions into robot scenarios
-            automatically, then visualizes and evaluates them with simulation and AI, in a way people can understand.
+            CROSS develops a software toolchain that turns natural-language descriptions into robot scenarios automatically, then visualizes and evaluates them with simulation and AI, in a way people can understand.
         </p>
 
-        <div class="funding">
-            <span data-i18n="fundingHero">Funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV).</span>
-            <br>
-            <span data-i18n="durationHero">Project Duration: 01/03/2026 – 28/02/2028</span>
+        <div class="funding" data-i18n="heroFunding">
+            Funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028
         </div>
 
     </div>
+
 </section>
 
+<!-- ================= PROJECT ================= -->
 <section id="project">
+
     <div class="project-container">
 
         <h2 class="project-title" data-i18n="projectTitle">Project</h2>
 
         <div class="project-block">
             <h3 data-i18n="challengeTitle">The challenge</h3>
-            <p data-i18n="challenge1">
-                Collaborative robots are increasingly used in industry to support human workers, offering flexibility and
-                efficiency. Integrating them safely while maintaining productivity is a major challenge.
-            </p>
-            <p data-i18n="challenge2">
-                Today, integration requires many manual and iterative steps and a great deal of expert knowledge and effort.
-            </p>
+            <p data-i18n="challengeText1">Collaborative robots are increasingly used in industry to support human workers, offering flexibility and efficiency. Integrating them safely while maintaining productivity is a major challenge.</p>
+            <p data-i18n="challengeText2">Today, integration requires many manual and iterative steps and a great deal of expert knowledge and effort.</p>
         </div>
 
         <div class="project-block">
             <h3 data-i18n="goalTitle">Our goal</h3>
-            <p data-i18n="goal1">
-                CROSS develops an innovative simulation-based software tool for the safety validation and optimisation of
-                human-robot collaboration systems.
-            </p>
-            <p data-i18n="goal2">
-                The toolchain generates robot scenarios automatically from natural language and evaluates them through
-                simulation and AI.
-            </p>
+            <p data-i18n="goalText1">CROSS develops an innovative simulation-based software tool for the safety validation and optimisation of human-robot collaboration systems.</p>
+            <p data-i18n="goalText2">The toolchain generates robot scenarios automatically from natural language and evaluates them through simulation and AI.</p>
         </div>
 
         <div class="project-block">
             <h3 data-i18n="projectBenefitsTitle">The benefits</h3>
-            <p data-i18n="projectBenefits">
-                Faster planning, easier access for non-experts and reduced dependence on a single robot manufacturer.
-            </p>
+            <p data-i18n="projectBenefitsText">Faster planning, easier access for non-experts and reduced dependence on a single robot manufacturer.</p>
         </div>
 
     </div>
+
 </section>
 
+<!-- ================= APPROACH ================= -->
 <section id="approach">
 
     <h2 class="approach-title" data-i18n="approachTitle">Approach</h2>
 
-    <p class="approach-intro" data-i18n="approachIntro">
-        CROSS connects every step from an idea to an evaluated scenario in one toolchain.
-    </p>
+    <p class="approach-intro" data-i18n="approachIntro">CROSS connects every step from an idea to an evaluated scenario in one toolchain.</p>
 
     <div class="approach-grid">
 
         <div class="approach-card">
-            <img src="images/chat.png" class="approach-icon" alt="Natural Language">
-            <h3 data-i18n="appNlTitle">Natural Language</h3>
-            <p data-i18n="appNlText">
-                Users describe the planned collaboration scenario in plain words. No programming or simulation expertise is needed.
-            </p>
+            <img src="images/chat.png" class="approach-icon" alt="Natural Language" data-i18n-alt="step1Title">
+            <h3 data-i18n="step1Title">Natural Language</h3>
+            <p data-i18n="step1Text">Users describe the planned collaboration scenario in plain words. No programming or simulation expertise is needed.</p>
         </div>
 
         <div class="approach-card">
-            <img src="images/AI.png" class="approach-icon" alt="AI Requirements">
-            <h3 data-i18n="appAiTitle">AI-based Requirements Engineering</h3>
-            <p data-i18n="appAiText">
-                AI extracts clear, structured requirements from the description.
-            </p>
+            <img src="images/AI.png" class="approach-icon" alt="AI-based Requirements Engineering" data-i18n-alt="step2Title">
+            <h3 data-i18n="step2Title">AI-based Requirements Engineering</h3>
+            <p data-i18n="step2Text">AI extracts clear, structured requirements from the description.</p>
         </div>
 
         <div class="approach-card">
-            <img src="images/sdl.png" class="approach-icon" alt="SDL Formalization">
-            <h3 data-i18n="appSdlTitle">SDL Formalization</h3>
-            <p data-i18n="appSdlText">
-                The requirements are translated into a formal machine-readable scenario description.
-            </p>
+            <img src="images/sdl.png" class="approach-icon" alt="SDL Formalization" data-i18n-alt="step3Title">
+            <h3 data-i18n="step3Title">SDL Formalization</h3>
+            <p data-i18n="step3Text">The requirements are translated into a formal machine-readable scenario description.</p>
         </div>
 
         <div class="approach-card">
-            <img src="images/simulation.png" class="approach-icon" alt="Simulation">
-            <h3 data-i18n="appSimTitle">Simulation</h3>
-            <p data-i18n="appSimText">
-                The scenario is simulated and visualized so interactions can be evaluated before deployment.
-            </p>
+            <img src="images/simulation.png" class="approach-icon" alt="Simulation" data-i18n-alt="step4Title">
+            <h3 data-i18n="step4Title">Simulation</h3>
+            <p data-i18n="step4Text">The scenario is simulated and visualized so interactions can be evaluated before deployment.</p>
         </div>
 
         <div class="approach-card">
-            <img src="images/kpi.png" class="approach-icon" alt="KPI Evaluation">
-            <h3 data-i18n="appKpiTitle">KPI Evaluation</h3>
-            <p data-i18n="appKpiText">
-                Safety and efficiency indicators are calculated and presented in an understandable way.
-            </p>
+            <img src="images/kpi.png" class="approach-icon" alt="KPI Evaluation" data-i18n-alt="step5Title">
+            <h3 data-i18n="step5Title">KPI Evaluation</h3>
+            <p data-i18n="step5Text">Safety and efficiency indicators are calculated and presented in an understandable way.</p>
         </div>
 
     </div>
 
     <div class="approach-footer">
-        <h3 data-i18n="vendorTitle">Vendor-independent by design</h3>
-        <p data-i18n="vendorText">
-            CROSS builds on open, manufacturer-independent standards and works with many simulation tools.
-            Users are not locked into a specific robot manufacturer.
-        </p>
+        <h3 data-i18n="approachFooterTitle">Vendor-independent by design</h3>
+        <p data-i18n="approachFooterText">CROSS builds on open, manufacturer-independent standards and works with many simulation tools. Users are not locked into a specific robot manufacturer.</p>
     </div>
 
 </section>
 
+<!-- ================= BENEFITS ================= -->
 <section id="benefits" class="benefits">
+
     <div class="container">
 
-        <h2 data-i18n="benefitsHeading">Benefits</h2>
+        <h2 data-i18n="benefitsTitle">Benefits</h2>
 
-        <div class="carousel" id="benefits-carousel" aria-roledescription="carousel" aria-label="Benefits">
+        <div class="carousel" id="benefits-carousel" aria-roledescription="carousel" aria-label="Benefits" data-i18n-aria="benefitsTitle">
 
-            <button class="carousel-btn carousel-prev" type="button" aria-label="Previous benefit">&#8249;</button>
+            <button class="carousel-btn carousel-prev" type="button" aria-label="Previous benefit" data-i18n-aria="carouselPrev">&#8249;</button>
 
             <div class="benefits-track" tabindex="0">
 
-                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="1 of 5">
+                <div class="benefit-card" role="group" aria-roledescription="slide">
                     <img src="images/speedometer.png" alt="">
-                    <h3 data-i18n="b1Title">Faster planning and evaluation</h3>
-                    <p data-i18n="b1Text">Automation replaces many manual, iterative steps in planning and safety validation.</p>
+                    <h3 data-i18n="benefit1Title">Faster planning and evaluation</h3>
+                    <p data-i18n="benefit1Text">Automation replaces many manual, iterative steps in planning and safety validation.</p>
                 </div>
 
-                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="2 of 5">
+                <div class="benefit-card" role="group" aria-roledescription="slide">
                     <img src="images/people.png" alt="">
-                    <h3 data-i18n="b2Title">Accessible to non-experts</h3>
-                    <p data-i18n="b2Text">A description in natural language is enough to create and assess a scenario.</p>
+                    <h3 data-i18n="benefit2Title">Accessible to non-experts</h3>
+                    <p data-i18n="benefit2Text">A description in natural language is enough to create and assess a scenario.</p>
                 </div>
 
-                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="3 of 5">
+                <div class="benefit-card" role="group" aria-roledescription="slide">
                     <img src="images/download-arrow.png" alt="">
-                    <h3 data-i18n="b3Title">Lower costs, especially for SMEs</h3>
-                    <p data-i18n="b3Text">Less expert effort and shorter projects make collaborative robots affordable for more companies.</p>
+                    <h3 data-i18n="benefit3Title">Lower costs, especially for SMEs</h3>
+                    <p data-i18n="benefit3Text">Less expert effort and shorter projects make collaborative robots affordable for more companies.</p>
                 </div>
 
-                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="4 of 5">
+                <div class="benefit-card" role="group" aria-roledescription="slide">
                     <img src="images/lock.png" alt="">
-                    <h3 data-i18n="b4Title">No vendor lock-in</h3>
-                    <p data-i18n="b4Text">Open standards and compatibility with many simulation tools keep users independent of any single manufacturer.</p>
+                    <h3 data-i18n="benefit4Title">No vendor lock-in</h3>
+                    <p data-i18n="benefit4Text">Open standards and compatibility with many simulation tools keep users independent of any single manufacturer.</p>
                 </div>
 
-                <div class="benefit-card" role="group" aria-roledescription="slide" aria-label="5 of 5">
+                <div class="benefit-card" role="group" aria-roledescription="slide">
                     <img src="images/dashboard.png" alt="">
-                    <h3 data-i18n="b5Title">Understandable results</h3>
-                    <p data-i18n="b5Text">Clear visualizations and scores support informed, transparent decisions.</p>
+                    <h3 data-i18n="benefit5Title">Understandable results</h3>
+                    <p data-i18n="benefit5Text">Clear visualizations and scores support informed, transparent decisions.</p>
                 </div>
 
             </div>
 
-            <button class="carousel-btn carousel-next" type="button" aria-label="Next benefit">&#8250;</button>
+            <button class="carousel-btn carousel-next" type="button" aria-label="Next benefit" data-i18n-aria="carouselNext">&#8250;</button>
 
-            <div class="carousel-dots" role="tablist" aria-label="Choose slide"></div>
+            <div class="carousel-dots" role="tablist" aria-label="Choose slide" data-i18n-aria="carouselDots"></div>
 
         </div>
 
     </div>
+
 </section>
 
+<!-- ================= NEWS ================= -->
 <section id="news">
+
     <div class="news-container">
 
         <h2 class="news-title" data-i18n="newsTitle">News</h2>
 
         <div class="news-item">
-            <h3 data-i18n="newsHeadline">CROSS presented at TÜV SÜD Mobile Robotics Conference</h3>
-            <div class="news-meta" data-i18n="newsMeta">27 October 2026, Munich, Germany</div>
-            <p data-i18n="newsP1">
-                Dr. Ali Al-Yacoub (TWT GmbH Science & Innovation) presented CROSS at the TÜV SÜD conference
-                "Mobile Robotics: Safety-Critical Applications & Machinery" in Munich.
-            </p>
-            <p data-i18n="newsP2">
-                In his talk, "Automating risk assessment for human-robot collaboration", he demonstrated how the CROSS
-                toolchain automates safety assessment for collaborative robot applications.
-            </p>
+
+            <h3 data-i18n="news1Title">CROSS presented at TÜV SÜD Mobile Robotics Conference</h3>
+
+            <div class="news-meta" data-i18n="news1Meta">27 October 2026, Munich, Germany</div>
+
+            <p data-i18n="news1Text1">Dr. Ali Al-Yacoub (TWT GmbH Science &amp; Innovation) presented CROSS at the TÜV SÜD conference "Mobile Robotics: Safety-Critical Applications &amp; Machinery" in Munich.</p>
+
+            <p data-i18n="news1Text2">In his talk, "Automating risk assessment for human-robot collaboration", he demonstrated how the CROSS toolchain automates safety assessment for collaborative robot applications.</p>
+
         </div>
 
     </div>
+
 </section>
 
+<!-- ================= PUBLICATIONS ================= -->
 <section id="publications">
+
     <div class="publications-container">
 
         <h2 class="publications-title" data-i18n="publicationsTitle">Publications</h2>
 
         <div class="publication-item">
+
             <div class="publication-bullet"></div>
+
             <p>
-                Ali Al-Yacoub, Alina Peter, Dennis Guck, Felix Fleschhut, Michael Keckeisen,
+                -Ali Al-Yacoub, Alina Peter, Dennis Guck, Felix Fleschhut, Michael Keckeisen,
                 <em>"Scenario-Based Collaborative Robot Evaluation (SCORE) Framework"</em>,
-                in: M. Manns (ed.), <em>New Paradigms for Anticipated Uncertainty (CARV 2025)</em>,
-                Lecture Notes in Mechanical Engineering, Springer, Cham, 2026, pp. 795–803.
+                <span data-i18n="pubIn">in:</span> M. Manns <span data-i18n="pubEditor">(ed.)</span>,
+                <em>New Paradigms for Anticipated Uncertainty (CARV 2025)</em>,
+                Lecture Notes in Mechanical Engineering, Springer, Cham, 2026,
+                <span data-i18n="pubPages">pp.</span> 795–803.
                 DOI:
                 <a href="https://link.springer.com/chapter/10.1007/978-3-032-16889-4_75"
-                   target="_blank" rel="noopener noreferrer">10.1007/978-3-032-16889-4_75</a>
+                   target="_blank"
+                   rel="noopener noreferrer">10.1007/978-3-032-16889-4_75</a>
                 (Open Access).
             </p>
+
         </div>
 
     </div>
+
 </section>
 
+<!-- ================= CONTACT ================= -->
 <section id="contact">
+
     <div class="contact-container">
 
         <h2 class="contact-title" data-i18n="contactTitle">Contacts</h2>
@@ -263,12 +256,19 @@
             </div>
 
             <div class="contact-details">
+
                 <p class="contact-names">Dr. Alina Peter · Dr. Ali Al-Yacoub</p>
+
                 <p><a href="mailto:alina.peter@twt-gmbh.de">alina.peter@twt-gmbh.de</a></p>
+
                 <p><a href="mailto:ali.alyacoub@twt-gmbh.de">ali.alyacoub@twt-gmbh.de</a></p>
-                <p>TWT GmbH Science & Innovation</p>
+
+                <p>TWT GmbH Science &amp; Innovation</p>
+
                 <p>Industriestraße 6</p>
-                <p>70565 Stuttgart/Germany</p>
+
+                <p data-i18n="contactCity">70565 Stuttgart/Germany</p>
+
             </div>
 
             <div class="contact-slogan">
@@ -278,9 +278,7 @@
         </div>
 
         <div class="contact-funding" data-i18n="contactFunding">
-            CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the
-            Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted
-            entirely by TWT GmbH Science & Innovation.
+            CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science &amp; Innovation.
         </div>
 
         <div class="invest-logo">
@@ -288,6 +286,7 @@
         </div>
 
     </div>
+
 </section>
 
 <script src="script.js"></script>
