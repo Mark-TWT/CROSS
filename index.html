@@ -26,11 +26,24 @@
         <a href="#publications" data-i18n="navPublications">Publications</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
 
-        <div class="language-switcher">
-            <select id="language-select" aria-label="Language">
-                <option value="en">🇬🇧 EN</option>
-                <option value="de">🇩🇪 DE</option>
-            </select>
+        <div class="language-switcher" id="language-switcher">
+
+            <button type="button" class="lang-button" id="lang-button"
+                    aria-haspopup="listbox" aria-expanded="false" aria-controls="lang-menu" aria-label="Language">
+                <span class="flag flag-en" id="lang-current-flag" aria-hidden="true"></span>
+                <span id="lang-current-code">EN</span>
+                <span class="lang-caret" aria-hidden="true">▾</span>
+            </button>
+
+            <ul class="lang-menu" id="lang-menu" role="listbox" hidden>
+                <li role="option" data-lang="en" tabindex="-1" aria-selected="true">
+                    <span class="flag flag-en" aria-hidden="true"></span>English
+                </li>
+                <li role="option" data-lang="de" tabindex="-1" aria-selected="false">
+                    <span class="flag flag-de" aria-hidden="true"></span>Deutsch
+                </li>
+            </ul>
+
         </div>
     </div>
 
@@ -38,6 +51,12 @@
 
 <!-- ================= HOME ================= -->
 <section id="home">
+
+    <!-- Διαδραστικός κύκλος: ακολουθεί το ποντίκι, κλικ = κύμα -->
+    <div class="hero-visual" id="hero-visual" aria-hidden="true">
+        <div class="hero-orbit"><span></span><span></span><span></span></div>
+        <div class="hero-circle" id="hero-circle"></div>
+    </div>
 
     <div class="hero-content">
 
