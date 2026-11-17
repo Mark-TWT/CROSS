@@ -109,9 +109,7 @@ const translations = {
 
         // Partners
         partnersTitle: "Partners",
-        partnersIntro: "Companies supporting the CROSS project.",
         partnerLoiBadge: "Letter of Intent (LoI)",
-        partnerVolvoText: "Volvo has provided a Letter of Intent for CROSS.",
 
         // Contact
         contactTitle: "Contacts",
@@ -215,9 +213,7 @@ const translations = {
 
         // Partners
         partnersTitle: "Partner",
-        partnersIntro: "Unternehmen, die das Projekt CROSS unterstützen.",
-        partnerLoiBadge: "Absichtserklärung (LoI)",
-        partnerVolvoText: "Volvo hat eine Absichtserklärung (Letter of Intent) für CROSS abgegeben.",
+        partnerLoiBadge: "Absichtserklärung (Letter of Intent, LoI)",
 
         // Contact
         contactTitle: "Kontakt",
