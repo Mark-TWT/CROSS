@@ -53,10 +53,91 @@
 <!-- ================= HOME ================= -->
 <section id="home">
 
-    <!-- Διαδραστικός κύκλος: ακολουθεί το ποντίκι, κλικ = κύμα -->
-    <div class="hero-visual" id="hero-visual" aria-hidden="true">
-        <div class="hero-orbit"><span></span><span></span><span></span></div>
-        <div class="hero-circle" id="hero-circle"></div>
+    <!-- Ζωντανή προσομοίωση: από περιγραφή σε φυσική γλώσσα σε βαθμολογημένο σενάριο -->
+    <div class="hero-visual" id="hero-visual">
+
+        <div class="hero-prompt">
+            <span id="hero-prompt-text"></span><span class="hero-caret" id="hero-caret"></span>
+        </div>
+
+        <ol class="hero-steps" id="hero-steps">
+            <li data-i18n="stepLanguage">Language</li>
+            <li data-i18n="stepRequirements">Requirements</li>
+            <li data-i18n="stepSdl">SDL</li>
+            <li data-i18n="stepSimulation">Simulation</li>
+            <li data-i18n="stepKpis">KPIs</li>
+        </ol>
+
+        <svg class="hero-scene" id="hero-scene" viewBox="0 0 400 400" role="img" aria-labelledby="hero-scene-title">
+            <title id="hero-scene-title" data-i18n="heroSceneLabel">Simulated human-robot work cell with safety zones and live scores</title>
+
+            <defs>
+                <clipPath id="cell-clip"><circle cx="200" cy="200" r="190"/></clipPath>
+                <pattern id="cell-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M20 0H0V20" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
+                </pattern>
+            </defs>
+
+            <circle cx="200" cy="200" r="190" fill="#006682"/>
+
+            <g clip-path="url(#cell-clip)">
+                <rect width="400" height="400" fill="url(#cell-grid)"/>
+
+                <!-- Ζώνες ασφαλείας γύρω από το ρομπότ -->
+                <circle id="zone-warn" cx="200" cy="215" r="130" fill="#ffffff" fill-opacity="0.04"
+                        stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="6 6"/>
+                <circle id="zone-stop" cx="200" cy="215" r="80" fill="#ffffff" fill-opacity="0.06"
+                        stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.5"/>
+
+                <!-- Πάγκοι εργασίας -->
+                <rect x="104" y="281" width="40" height="26" rx="3" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.5"/>
+                <rect x="268" y="281" width="40" height="26" rx="3" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.5"/>
+                <g id="placed-parts" fill="#ffffff" fill-opacity="0.55"></g>
+
+                <!-- Απόσταση ανθρώπου-ρομπότ -->
+                <line id="sep-line" x1="200" y1="215" x2="200" y2="215" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 4" stroke-opacity="0"/>
+
+                <!-- Ρομπότ (κάτοψη) -->
+                <g id="robot" stroke="#ffffff" stroke-linecap="round">
+                    <line id="link1" x1="200" y1="215" x2="200" y2="215" stroke-width="12"/>
+                    <line id="link2" x1="200" y1="215" x2="200" y2="215" stroke-width="8"/>
+                    <circle cx="200" cy="215" r="17" fill="#004d63" stroke-width="3"/>
+                    <circle id="elbow" cx="200" cy="215" r="7" fill="#004d63" stroke-width="3"/>
+                    <rect id="part" x="-6" y="-6" width="12" height="12" rx="2" fill="#ffffff" stroke="none"/>
+                </g>
+
+                <!-- Εργαζόμενος (κάτοψη: ώμοι + κεφάλι) -->
+                <g id="human">
+                    <ellipse rx="16" ry="9" fill="#ffffff" fill-opacity="0.9"/>
+                    <circle r="7.5" fill="#ffffff" stroke="#006682" stroke-width="2"/>
+                </g>
+            </g>
+        </svg>
+
+        <div class="hero-kpis">
+            <div class="hero-kpi">
+                <span class="hero-kpi-label" data-i18n="kpiSafety">Safety</span>
+                <span class="hero-kpi-value" id="kpi-safety">–</span>
+                <span class="hero-kpi-bar"><span id="kpi-safety-bar"></span></span>
+            </div>
+            <div class="hero-kpi">
+                <span class="hero-kpi-label" data-i18n="kpiEfficiency">Efficiency</span>
+                <span class="hero-kpi-value" id="kpi-efficiency">–</span>
+                <span class="hero-kpi-bar"><span id="kpi-efficiency-bar"></span></span>
+            </div>
+            <div class="hero-kpi">
+                <span class="hero-kpi-label" data-i18n="kpiSeparation">Distance</span>
+                <span class="hero-kpi-value" id="kpi-separation">–</span>
+            </div>
+        </div>
+
+        <div class="hero-status" id="hero-status" data-state="full" aria-live="polite">
+            <span class="hero-status-dot"></span>
+            <span id="hero-status-text"></span>
+        </div>
+
+        <p class="hero-hint" id="hero-hint"></p>
+
     </div>
 
     <div class="hero-content">
@@ -335,7 +416,7 @@
         </div>
 
         <div class="contact-funding" data-i18n="contactFunding">
-            CROSS is funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science &amp; Innovation.
+            CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science &amp; Innovation.
         </div>
 
     </div>
