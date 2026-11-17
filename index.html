@@ -18,13 +18,13 @@
     <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">☰</button>
 
     <div class="nav-links" id="nav-links">
+        <a href="#partners" data-i18n="navPartners">Partners</a>
         <a href="#home" data-i18n="navHome">Home</a>
         <a href="#project" data-i18n="navProject">Project</a>
         <a href="#approach" data-i18n="navApproach">Approach</a>
         <a href="#benefits" data-i18n="navBenefits">Benefits</a>
         <a href="#news" data-i18n="navNews">News</a>
         <a href="#publications" data-i18n="navPublications">Publications</a>
-        <a href="#partners" data-i18n="navPartners">Partners</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
 
         <div class="language-switcher" id="language-switcher">
@@ -353,25 +353,15 @@
 
         <h2 class="partners-title" data-i18n="partnersTitle">Partners</h2>
 
-        <p class="partners-intro" data-i18n="partnersIntro">Companies supporting the CROSS project.</p>
+        <!-- Για νέο partner: αντέγραψε ολόκληρο το partner-item -->
+        <div class="partner-item">
 
-        <!-- Για νέο partner: αντέγραψε ολόκληρο το partner-card -->
-        <div class="partners-grid">
+            <!-- Βάλε το λογότυπο στο images/volvo-logo.png -->
+            <img src="images/volvo-logo.png" alt="Volvo" class="partner-logo" onerror="this.style.display = 'none'">
 
-            <div class="partner-card">
+            <h3>Volvo</h3>
 
-                <div class="partner-logo">
-                    <!-- Βάλε το λογότυπο στο images/volvo-logo.png -->
-                    <img src="images/volvo-logo.png" alt="Volvo" onerror="this.parentElement.hidden = true">
-                </div>
-
-                <h3>Volvo</h3>
-
-                <span class="partner-badge" data-i18n="partnerLoiBadge">Letter of Intent (LoI)</span>
-
-                <p data-i18n="partnerVolvoText">Volvo has provided a Letter of Intent for CROSS.</p>
-
-            </div>
+            <p data-i18n="partnerLoiBadge">Letter of Intent (LoI)</p>
 
         </div>
 
