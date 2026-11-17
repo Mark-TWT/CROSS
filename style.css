@@ -277,59 +277,181 @@ h2{
     margin:0 auto;
 }
 
-/* ---------- Διαδραστικός κύκλος ---------- */
+/* ---------- Ζωντανή προσομοίωση CROSS στο home ----------
+   Μια κάτοψη κυψέλης συνεργασίας ανθρώπου-ρομπότ:
+   το ρομπότ κάνει pick & place, ο εργαζόμενος κινείται,
+   οι ζώνες ασφαλείας αντιδρούν και τα KPIs υπολογίζονται live. */
 
 .hero-visual{
     position:relative;
     width:100%;
-    max-width:520px;
-    aspect-ratio:1 / 1;
+    max-width:500px;
     justify-self:center;
-    --x:0px;
-    --y:0px;
-    --s:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
 }
 
-.hero-orbit{
-    position:absolute;
-    inset:0;
-    border:1.5px solid rgba(0,102,130,0.35);
-    border-radius:50%;
-    animation:hero-orbit 40s linear infinite;
-    pointer-events:none;
+.hero-prompt{
+    align-self:stretch;
+    min-height:3.2em;
+    padding:10px 16px;
+    background:white;
+    border:1px solid #dfe6ea;
+    border-radius:14px 14px 14px 4px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.05);
+    font-size:16px;
+    line-height:1.5;
+    color:#333;
+    text-align:left;
 }
 
-.hero-orbit span{
-    position:absolute;
-    width:14px;
-    height:14px;
-    margin:-7px 0 0 -7px;
-    border-radius:50%;
+.hero-caret{
+    display:inline-block;
+    width:2px;
+    height:1.1em;
+    margin-left:2px;
+    vertical-align:text-bottom;
     background:var(--primary);
+    animation:hero-blink 1s steps(1) infinite;
 }
 
-.hero-orbit span:nth-child(1){ top:0;     left:50%; }
-.hero-orbit span:nth-child(2){ top:75%;   left:93.3%; width:10px; height:10px; margin:-5px 0 0 -5px; }
-.hero-orbit span:nth-child(3){ top:75%;   left:6.7%;  width:18px; height:18px; margin:-9px 0 0 -9px; opacity:0.6; }
+.hero-caret.done{
+    display:none;
+}
 
-.hero-circle{
-    position:absolute;
-    inset:9%;
-    border-radius:50%;
+@keyframes hero-blink{
+    50%{ opacity:0; }
+}
+
+.hero-steps{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:6px;
+}
+
+.hero-steps li{
+    padding:4px 10px;
+    border-radius:999px;
+    border:1px solid #cfdde3;
+    font-size:13px;
+    font-weight:600;
+    color:#7a8d95;
+    background:white;
+    transition:background 0.4s, color 0.4s, border-color 0.4s;
+}
+
+.hero-steps li.done{
+    color:var(--primary);
+    border-color:var(--primary);
+}
+
+.hero-steps li.active{
     background:var(--primary);
-    box-shadow:0 30px 60px rgba(0,102,130,0.28);
-    transform:translate3d(var(--x), var(--y), 0) scale(var(--s));
-    will-change:transform;
-    cursor:pointer;
+    border-color:var(--primary);
+    color:white;
 }
 
-.hero-ripple{
-    position:absolute;
-    inset:9%;
+.hero-scene{
+    width:100%;
+    height:auto;
+    display:block;
+    cursor:crosshair;
+    filter:drop-shadow(0 24px 40px rgba(0,102,130,0.25));
+    opacity:0.25;
+    transition:opacity 0.8s ease;
+}
+
+.hero-scene.running{
+    opacity:1;
+}
+
+.hero-kpis{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    width:100%;
+}
+
+.hero-kpi{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+    padding:10px 6px;
+    background:white;
+    border:1px solid #dfe6ea;
+    border-radius:10px;
+}
+
+.hero-kpi-label{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.6px;
+    text-transform:uppercase;
+    color:#6b7c84;
+}
+
+.hero-kpi-value{
+    font-size:24px;
+    font-weight:600;
+    color:var(--primary);
+    font-variant-numeric:tabular-nums;
+}
+
+.hero-kpi-bar{
+    width:80%;
+    height:4px;
+    margin-top:4px;
+    border-radius:2px;
+    background:#e3ecef;
+    overflow:hidden;
+}
+
+.hero-kpi-bar span{
+    display:block;
+    height:100%;
+    width:0%;
+    background:var(--primary);
+    transition:width 0.3s linear;
+}
+
+.hero-status{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#333;
+}
+
+.hero-status-dot{
+    width:10px;
+    height:10px;
     border-radius:50%;
-    border:2px solid var(--primary);
-    pointer-events:none;
-    animation:hero-ripple 1s ease-out forwards;
+    background:#2fb37a;
+    box-shadow:0 0 0 4px rgba(47,179,122,0.18);
+    transition:background 0.3s, box-shadow 0.3s;
+}
+
+.hero-status[data-state="reduced"] .hero-status-dot{
+    background:#f2a516;
+    box-shadow:0 0 0 4px rgba(242,165,22,0.2);
+}
+
+.hero-status[data-state="stop"] .hero-status-dot{
+    background:#e5484d;
+    box-shadow:0 0 0 4px rgba(229,72,77,0.2);
+}
+
+.hero-hint{
+    font-size:13px !important;
+    line-height:1.4 !important;
+    color:#6b7c84 !important;
+    margin:0 !important;
 }
 
 /* "CROSS" μόνο του, μεγάλο, και από κάτω το πλήρες όνομα */
@@ -345,15 +467,6 @@ h2{
     font-size:var(--fs-hero);
     font-weight:700;
     line-height:1.2;
-}
-
-@keyframes hero-orbit{
-    to{ transform:rotate(360deg); }
-}
-
-@keyframes hero-ripple{
-    from{ transform:scale(1);   opacity:0.8; }
-    to  { transform:scale(1.45); opacity:0; }
 }
 
 .hero-content h1{
@@ -1011,7 +1124,8 @@ h2{
     }
 
     .hero-visual{
-        max-width:260px;
+        max-width:420px;
+        order:2;          /* στο κινητό/tablet ο τίτλος εμφανίζεται πρώτος */
     }
 
     .benefits-track{
@@ -1148,7 +1262,7 @@ h2{
         scroll-behavior:auto;
     }
 
-    .hero-orbit{
+    .hero-caret{
         animation:none;
     }
 
