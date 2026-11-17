@@ -18,13 +18,13 @@
     <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">☰</button>
 
     <div class="nav-links" id="nav-links">
-        <a href="#partners" data-i18n="navPartners">Partners</a>
         <a href="#home" data-i18n="navHome">Home</a>
         <a href="#project" data-i18n="navProject">Project</a>
         <a href="#approach" data-i18n="navApproach">Approach</a>
         <a href="#benefits" data-i18n="navBenefits">Benefits</a>
         <a href="#news" data-i18n="navNews">News</a>
         <a href="#publications" data-i18n="navPublications">Publications</a>
+        <a href="#partners" data-i18n="navPartners">Partners</a>
         <a href="#contact" data-i18n="navContact">Contact</a>
 
         <div class="language-switcher" id="language-switcher">
@@ -53,90 +53,73 @@
 <!-- ================= HOME ================= -->
 <section id="home">
 
-    <!-- Ζωντανή προσομοίωση: από περιγραφή σε φυσική γλώσσα σε βαθμολογημένο σενάριο -->
+    <!-- Διαδραστικό: από περιγραφή σε φυσική γλώσσα σε βαθμολογημένο σενάριο ρομπότ -->
     <div class="hero-visual" id="hero-visual">
 
-        <div class="hero-prompt">
-            <span id="hero-prompt-text"></span><span class="hero-caret" id="hero-caret"></span>
+        <div class="orb" id="orb" role="region" aria-roledescription="interactive demo" aria-live="polite">
+
+            <svg class="orb-ring" viewBox="0 0 100 100" aria-hidden="true">
+                <circle class="orb-ring-track" cx="50" cy="50" r="47"/>
+                <circle class="orb-ring-progress" id="orb-ring" cx="50" cy="50" r="47" pathLength="100"/>
+            </svg>
+
+            <div class="orb-inner">
+
+                <span class="orb-label" id="orb-label"></span>
+
+                <!-- 1. Περιγραφή σε φυσική γλώσσα -->
+                <div class="orb-panel" data-panel="0">
+                    <p class="orb-sentence" id="orb-sentence"></p>
+                </div>
+
+                <!-- 2. Απαιτήσεις που εξάγονται -->
+                <div class="orb-panel" data-panel="1">
+                    <ul class="orb-reqs" id="orb-reqs"></ul>
+                </div>
+
+                <!-- 3. Παραγόμενο σενάριο -->
+                <div class="orb-panel" data-panel="2">
+                    <svg class="orb-scene" id="orb-scene" viewBox="0 0 200 140" aria-hidden="true">
+                        <circle cx="80" cy="74" r="50" class="scene-zone"/>
+                        <rect x="34" y="104" width="26" height="16" rx="2" class="scene-table"/>
+                        <rect x="100" y="104" width="26" height="16" rx="2" class="scene-table"/>
+                        <g class="scene-arm">
+                            <line x1="80" y1="74" x2="80" y2="112" class="scene-link"/>
+                            <rect x="75" y="108" width="10" height="8" rx="1.5" class="scene-part"/>
+                        </g>
+                        <circle cx="80" cy="74" r="9" class="scene-base"/>
+                        <g class="scene-human">
+                            <ellipse cx="0" cy="0" rx="11" ry="6"/>
+                            <circle cx="0" cy="0" r="5" class="scene-head"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <!-- 4. Βαθμολογία -->
+                <div class="orb-panel" data-panel="3">
+                    <div class="orb-score"><span id="orb-score">0</span><small>/100</small></div>
+                    <div class="orb-subscores">
+                        <span><span data-i18n="kpiSafety">Safety</span> <b id="orb-safety">0</b></span>
+                        <span><span data-i18n="kpiEfficiency">Efficiency</span> <b id="orb-efficiency">0</b></span>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <ol class="hero-steps" id="hero-steps">
-            <li data-i18n="stepLanguage">Language</li>
-            <li data-i18n="stepRequirements">Requirements</li>
-            <li data-i18n="stepSdl">SDL</li>
-            <li data-i18n="stepSimulation">Simulation</li>
-            <li data-i18n="stepKpis">KPIs</li>
+        <!-- Βήματα: κλικ για μετάβαση -->
+        <ol class="orb-steps" id="orb-steps">
+            <li><button type="button" data-step="0" data-i18n="stepLanguage">Language</button></li>
+            <li><button type="button" data-step="1" data-i18n="stepRequirements">Requirements</button></li>
+            <li><button type="button" data-step="2" data-i18n="stepScenario">Scenario</button></li>
+            <li><button type="button" data-step="3" data-i18n="stepScore">Score</button></li>
         </ol>
 
-        <svg class="hero-scene" id="hero-scene" viewBox="0 0 400 400" role="img" aria-labelledby="hero-scene-title">
-            <title id="hero-scene-title" data-i18n="heroSceneLabel">Simulated human-robot work cell with safety zones and live scores</title>
-
-            <defs>
-                <clipPath id="cell-clip"><circle cx="200" cy="200" r="190"/></clipPath>
-                <pattern id="cell-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M20 0H0V20" fill="none" stroke="#ffffff" stroke-opacity="0.07" stroke-width="1"/>
-                </pattern>
-            </defs>
-
-            <circle cx="200" cy="200" r="190" fill="#006682"/>
-
-            <g clip-path="url(#cell-clip)">
-                <rect width="400" height="400" fill="url(#cell-grid)"/>
-
-                <!-- Ζώνες ασφαλείας γύρω από το ρομπότ -->
-                <circle id="zone-warn" cx="200" cy="215" r="130" fill="#ffffff" fill-opacity="0.04"
-                        stroke="#ffffff" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="6 6"/>
-                <circle id="zone-stop" cx="200" cy="215" r="80" fill="#ffffff" fill-opacity="0.06"
-                        stroke="#ffffff" stroke-opacity="0.5" stroke-width="1.5"/>
-
-                <!-- Πάγκοι εργασίας -->
-                <rect x="104" y="281" width="40" height="26" rx="3" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.5"/>
-                <rect x="268" y="281" width="40" height="26" rx="3" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.5"/>
-                <g id="placed-parts" fill="#ffffff" fill-opacity="0.55"></g>
-
-                <!-- Απόσταση ανθρώπου-ρομπότ -->
-                <line id="sep-line" x1="200" y1="215" x2="200" y2="215" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 4" stroke-opacity="0"/>
-
-                <!-- Ρομπότ (κάτοψη) -->
-                <g id="robot" stroke="#ffffff" stroke-linecap="round">
-                    <line id="link1" x1="200" y1="215" x2="200" y2="215" stroke-width="12"/>
-                    <line id="link2" x1="200" y1="215" x2="200" y2="215" stroke-width="8"/>
-                    <circle cx="200" cy="215" r="17" fill="#004d63" stroke-width="3"/>
-                    <circle id="elbow" cx="200" cy="215" r="7" fill="#004d63" stroke-width="3"/>
-                    <rect id="part" x="-6" y="-6" width="12" height="12" rx="2" fill="#ffffff" stroke="none"/>
-                </g>
-
-                <!-- Εργαζόμενος (κάτοψη: ώμοι + κεφάλι) -->
-                <g id="human">
-                    <ellipse rx="16" ry="9" fill="#ffffff" fill-opacity="0.9"/>
-                    <circle r="7.5" fill="#ffffff" stroke="#006682" stroke-width="2"/>
-                </g>
-            </g>
-        </svg>
-
-        <div class="hero-kpis">
-            <div class="hero-kpi">
-                <span class="hero-kpi-label" data-i18n="kpiSafety">Safety</span>
-                <span class="hero-kpi-value" id="kpi-safety">–</span>
-                <span class="hero-kpi-bar"><span id="kpi-safety-bar"></span></span>
-            </div>
-            <div class="hero-kpi">
-                <span class="hero-kpi-label" data-i18n="kpiEfficiency">Efficiency</span>
-                <span class="hero-kpi-value" id="kpi-efficiency">–</span>
-                <span class="hero-kpi-bar"><span id="kpi-efficiency-bar"></span></span>
-            </div>
-            <div class="hero-kpi">
-                <span class="hero-kpi-label" data-i18n="kpiSeparation">Distance</span>
-                <span class="hero-kpi-value" id="kpi-separation">–</span>
-            </div>
+        <!-- Παραδείγματα σεναρίων: κλικ για νέο σενάριο -->
+        <div class="orb-scenarios">
+            <span class="orb-scenarios-label" data-i18n="tryScenario">Try a scenario:</span>
+            <div class="orb-chips" id="orb-chips"></div>
         </div>
-
-        <div class="hero-status" id="hero-status" data-state="full" aria-live="polite">
-            <span class="hero-status-dot"></span>
-            <span id="hero-status-text"></span>
-        </div>
-
-        <p class="hero-hint" id="hero-hint"></p>
 
     </div>
 
@@ -154,7 +137,7 @@
         </p>
 
         <div class="funding" data-i18n="heroFunding">
-            Funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028
+            Funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028
         </div>
 
     </div>
@@ -406,7 +389,7 @@
         </div>
 
         <div class="contact-funding" data-i18n="contactFunding">
-            CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science &amp; Innovation.
+            CROSS is funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science &amp; Innovation.
         </div>
 
     </div>
