@@ -864,7 +864,7 @@ h2{
 /* ---------- PARTNERS ---------- */
 
 #partners{
-    background:white;
+    background:#f5f5f5;
     padding:var(--section-y) 8%;
 }
 
@@ -875,70 +875,39 @@ h2{
 }
 
 .partners-title{
+    text-align:center;
     font-size:var(--fs-title);
     font-weight:300;
     color:#111;
-    margin-bottom:16px;
+    margin-bottom:clamp(32px,4vw,56px);
 }
 
-.partners-intro{
-    font-size:var(--fs-body);
-    color:#444;
-    margin-bottom:clamp(32px,4vw,48px);
-}
-
-.partners-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(260px, 340px));
-    justify-content:center;
-    gap:32px;
-}
-
-.partner-card{
+.partner-item{
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:14px;
-    padding:36px 28px;
-    border:1px solid #e3e8eb;
-    border-top:4px solid var(--primary);
-    border-radius:8px;
-    background:#f7f9fc;
-    transition:transform 0.3s ease, box-shadow 0.3s ease;
+    gap:10px;
+    margin-bottom:32px;
 }
 
-.partner-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 12px 28px rgba(0,102,130,0.12);
-}
-
-.partner-logo img{
-    max-width:200px;
-    max-height:80px;
+.partner-logo{
+    max-width:220px;
+    max-height:90px;
     width:auto;
     object-fit:contain;
+    margin-bottom:10px;
 }
 
-.partner-card h3{
+.partner-item h3{
     font-size:var(--fs-subtitle);
+    font-weight:600;
     color:#111;
 }
 
-.partner-badge{
-    display:inline-block;
-    padding:6px 14px;
-    border-radius:999px;
-    background:var(--primary);
-    color:white;
-    font-size:15px;
-    font-weight:600;
-    letter-spacing:0.3px;
-}
-
-.partner-card p{
+.partner-item p{
     font-size:var(--fs-body);
-    line-height:1.6;
-    color:#444;
+    line-height:1.8;
+    color:#333;
 }
 
 /* ---------- CONTACT ---------- */
