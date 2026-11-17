@@ -30,24 +30,34 @@ const translations = {
         // Home
         heroSubtitle: "From natural language to scored robot scenarios.",
         heroText: "CROSS develops a software toolchain that turns natural-language descriptions into robot scenarios automatically, then visualizes and evaluates them with simulation and AI, in a way people can understand.",
-        heroFunding: "Funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028",
+        heroFunding: "Funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028",
 
-        // Live simulation (home)
-        heroPrompt: "“A worker hands parts to a robot at the assembly station.”",
+        // Interactive demo (home)
         stepLanguage: "Language",
         stepRequirements: "Requirements",
-        stepSdl: "SDL",
-        stepSimulation: "Simulation",
-        stepKpis: "KPIs",
-        heroSceneLabel: "Simulated human-robot work cell with safety zones and live scores",
+        stepScenario: "Scenario",
+        stepScore: "Score",
+        stageTitles: ["Natural-language description", "Extracted requirements", "Generated scenario", "Scenario score"],
         kpiSafety: "Safety",
         kpiEfficiency: "Efficiency",
-        kpiSeparation: "Distance",
-        statusFull: "Full speed",
-        statusReduced: "Reduced speed",
-        statusStop: "Protective stop",
-        hintPointer: "Move your cursor over the work cell to guide the worker.",
-        hintTouch: "Tap inside the work cell to move the worker.",
+        tryScenario: "Try a scenario:",
+        scenarios: [
+            {
+                name: "Handover",
+                text: "A worker *hands parts to the robot* at the assembly station and keeps a *safe distance*.",
+                reqs: ["Handover between worker and robot", "Robot speed ≤ 250 mm/s near the worker", "Separation ≥ 0.5 m"]
+            },
+            {
+                name: "Shared assembly",
+                text: "Robot and worker *assemble a gearbox side by side* within a *45-second cycle*.",
+                reqs: ["Shared workspace", "Limited contact forces", "Cycle time ≤ 45 s"]
+            },
+            {
+                name: "Palletizing",
+                text: "The robot *stacks boxes on a pallet* while the worker *restocks the conveyor*.",
+                reqs: ["Alternating access to the cell", "Robot pauses when the zone is entered", "Throughput ≥ 8 boxes/min"]
+            }
+        ],
 
         // Project
         projectTitle: "Project",
@@ -114,7 +124,7 @@ const translations = {
         // Contact
         contactTitle: "Contacts",
         contactCity: "70565 Stuttgart/Germany",
-        contactFunding: "CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science & Innovation."
+        contactFunding: "CROSS is funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science & Innovation."
     },
 
     de: {
@@ -134,24 +144,34 @@ const translations = {
         // Home
         heroSubtitle: "Von natürlicher Sprache zu bewerteten Roboterszenarien.",
         heroText: "CROSS entwickelt eine Software-Toolchain, die Beschreibungen in natürlicher Sprache automatisch in Roboterszenarien überführt und diese anschließend mithilfe von Simulation und KI visualisiert und nachvollziehbar bewertet.",
-        heroFunding: "Gefördert vom Ministerium für Wirtschaft, Arbeit und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV). Projektlaufzeit: 01.03.2026 – 28.02.2028",
+        heroFunding: "Gefördert vom Ministerium für Wirtschaft, Handwerk und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV). Projektlaufzeit: 01.03.2026 – 28.02.2028",
 
-        // Live simulation (home)
-        heroPrompt: "„Ein Werker übergibt an der Montagestation Teile an einen Roboter.“",
+        // Interactive demo (home)
         stepLanguage: "Sprache",
         stepRequirements: "Anforderungen",
-        stepSdl: "SDL",
-        stepSimulation: "Simulation",
-        stepKpis: "KPIs",
-        heroSceneLabel: "Simulierte Mensch-Roboter-Arbeitszelle mit Schutzzonen und Live-Bewertung",
+        stepScenario: "Szenario",
+        stepScore: "Bewertung",
+        stageTitles: ["Beschreibung in natürlicher Sprache", "Abgeleitete Anforderungen", "Generiertes Szenario", "Szenario-Bewertung"],
         kpiSafety: "Sicherheit",
         kpiEfficiency: "Effizienz",
-        kpiSeparation: "Abstand",
-        statusFull: "Volle Geschwindigkeit",
-        statusReduced: "Reduzierte Geschwindigkeit",
-        statusStop: "Schutzstopp",
-        hintPointer: "Bewegen Sie den Mauszeiger über die Arbeitszelle, um den Werker zu führen.",
-        hintTouch: "Tippen Sie in die Arbeitszelle, um den Werker zu bewegen.",
+        tryScenario: "Szenario ausprobieren:",
+        scenarios: [
+            {
+                name: "Übergabe",
+                text: "Ein Werker *übergibt dem Roboter Teile* an der Montagestation und hält einen *sicheren Abstand*.",
+                reqs: ["Übergabe zwischen Werker und Roboter", "Robotergeschwindigkeit ≤ 250 mm/s nahe dem Werker", "Abstand ≥ 0,5 m"]
+            },
+            {
+                name: "Gemeinsame Montage",
+                text: "Roboter und Werker *montieren nebeneinander ein Getriebe* in einem *45-Sekunden-Takt*.",
+                reqs: ["Gemeinsamer Arbeitsraum", "Begrenzte Kontaktkräfte", "Taktzeit ≤ 45 s"]
+            },
+            {
+                name: "Palettierung",
+                text: "Der Roboter *stapelt Kartons auf eine Palette*, während der Werker *das Förderband auffüllt*.",
+                reqs: ["Abwechselnder Zugang zur Zelle", "Roboter pausiert bei Betreten der Zone", "Durchsatz ≥ 8 Kartons/min"]
+            }
+        ],
 
         // Project
         projectTitle: "Projekt",
@@ -218,7 +238,7 @@ const translations = {
         // Contact
         contactTitle: "Kontakt",
         contactCity: "70565 Stuttgart/Deutschland",
-        contactFunding: "CROSS wird vom Ministerium für Wirtschaft, Arbeit und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV) gefördert · Projektlaufzeit: 01.03.2026 – 28.02.2028 · Das Projekt wird vollständig von der TWT GmbH Science & Innovation durchgeführt."
+        contactFunding: "CROSS wird vom Ministerium für Wirtschaft, Handwerk und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV) gefördert · Projektlaufzeit: 01.03.2026 – 28.02.2028 · Das Projekt wird vollständig von der TWT GmbH Science & Innovation durchgeführt."
     }
 
 };
@@ -502,280 +522,182 @@ window.addEventListener("resize", () => {
 
 })();
 
-/* ---------- Ζωντανή προσομοίωση CROSS στο home ----------
-   1. Μια περιγραφή σε φυσική γλώσσα "πληκτρολογείται".
-   2. Τα βήματα της toolchain ανάβουν (Language → … → KPIs).
-   3. Ξεκινά η προσομοίωση: ρομπότ κάνει pick & place, ο εργαζόμενος
-      κινείται, και το ρομπότ επιβραδύνει/σταματά στις ζώνες ασφαλείας.
-   4. Τα KPIs (ασφάλεια, αποδοτικότητα, απόσταση) υπολογίζονται live.
+/* ---------- Διαδραστικός κύκλος CROSS στο home ----------
+   Δείχνει τη ροή του CROSS για ένα σενάριο:
+   1. Περιγραφή σε φυσική γλώσσα   2. Απαιτήσεις
+   3. Παραγόμενο σενάριο            4. Βαθμολογία
+   Ο χρήστης μπορεί να διαλέξει σενάριο ή να πατήσει ένα βήμα.
+   Οι βαθμολογίες είναι ενδεικτικές.
 */
 
-(function initHeroSimulation(){
+(function initCrossDemo(){
 
-    const scene = document.getElementById("hero-scene");
-    if (!scene) return;
+    const orb = document.getElementById("orb");
+    if (!orb) return;
 
     const $ = id => document.getElementById(id);
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isTouch = window.matchMedia("(hover: none)").matches;
 
-    // Γεωμετρία (μονάδες SVG, 100 μονάδες = 1 μέτρο)
-    const BASE = { x: 200, y: 215 };
-    const L1 = 72, L2 = 58;                  // μήκη βραχιόνων
-    const R_WARN = 130, R_STOP = 80;         // ζώνη επιβράδυνσης / ζώνη στάσης
-    const PICK_ANGLE = 2.33, PLACE_ANGLE = 0.81, REACH = 108;
-    const CELL = { x: 200, y: 200, r: 168 }; // όριο κίνησης εργαζομένου
+    // Ενδεικτικές βαθμολογίες ανά σενάριο
+    const SCORES = [
+        { total: 86, safety: 91, efficiency: 80 },
+        { total: 78, safety: 84, efficiency: 72 },
+        { total: 91, safety: 95, efficiency: 88 }
+    ];
+    const DURATION = [3600, 3000, 3000, 4500];   // ms ανά βήμα
 
-    const el = {
-        link1: $("link1"), link2: $("link2"), elbow: $("elbow"), part: $("part"),
-        human: $("human"), sep: $("sep-line"), warn: $("zone-warn"), stop: $("zone-stop"),
-        placed: $("placed-parts"),
-        safety: $("kpi-safety"), safetyBar: $("kpi-safety-bar"),
-        eff: $("kpi-efficiency"), effBar: $("kpi-efficiency-bar"),
-        sepVal: $("kpi-separation"),
-        status: $("hero-status"), statusText: $("hero-status-text"),
-        hint: $("hero-hint"), prompt: $("hero-prompt-text"), caret: $("hero-caret"),
-        steps: Array.from(document.querySelectorAll("#hero-steps li"))
-    };
+    const panels = Array.from(orb.querySelectorAll(".orb-panel"));
+    const stepButtons = Array.from(document.querySelectorAll("#orb-steps button"));
+    const chipsWrap = $("orb-chips");
+    const ring = $("orb-ring");
 
-    // Κατάσταση
-    let phase = 0;            // 0→1: pick→place, 1→2: επιστροφή
-    let speed = 1;            // πραγματική ταχύτητα ρομπότ (0…1)
-    let efficiency = 100;     // κινητός μέσος όρος ταχύτητας
-    let safety = 100;
-    let placedCount = 0;
-    let carrying = true;
-    let simTime = 0;
-    let human = { x: 90, y: 120, angle: 0 };
-    let pointerTarget = null;
-    let started = false;
-    let visible = true;
-    let lastTs = null;
+    let scenario = 0;
+    let stage = 0;
+    let timer = null;
+    let paused = false;
+    let animations = [];      // ενεργά timeouts/intervals του τρέχοντος βήματος
 
-    /* ---- 1-2: εισαγωγή (πληκτρολόγηση + βήματα toolchain) ---- */
+    function clearAnimations(){
+        animations.forEach(id => { clearTimeout(id); clearInterval(id); });
+        animations = [];
+    }
 
-    function setStep(activeIndex){
-        el.steps.forEach((li, i) => {
-            li.classList.toggle("done", i < activeIndex);
-            li.classList.toggle("active", i === activeIndex || (activeIndex >= 3 && i >= 3));
+    function data(){ return t("scenarios")[scenario]; }
+
+    /* ---- Σενάρια (κουμπιά) ---- */
+
+    function buildChips(){
+        chipsWrap.innerHTML = "";
+        t("scenarios").forEach((sc, i) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.textContent = sc.name;
+            btn.setAttribute("aria-pressed", i === scenario);
+            btn.addEventListener("click", () => {
+                scenario = i;
+                goTo(0, true);
+            });
+            chipsWrap.appendChild(btn);
         });
     }
 
-    function runIntro(){
-        const text = t("heroPrompt");
+    /* ---- Περιεχόμενο κάθε βήματος ---- */
 
-        if (reduceMotion){
-            el.prompt.textContent = text;
-            el.caret.classList.add("done");
-            setStep(3);
-            start();
-            return;
-        }
+    function renderSentence(animate){
+        const box = $("orb-sentence");
+        // *φράσεις* = λέξεις-κλειδιά που γίνονται απαιτήσεις
+        const html = data().text
+            .split(/(\*[^*]+\*)/)
+            .filter(Boolean)
+            .map(part => {
+                const key = part.startsWith("*");
+                const words = part.replace(/\*/g, "").split(" ").filter(Boolean)
+                    .map(w => '<span class="w">' + w + '</span>').join(" ");
+                return key ? "<mark>" + words + "</mark>" : words;
+            })
+            .join(" ")
+            .replace(/ (<span class="w">[.,;:!?])/g, "$1");   // χωρίς κενό πριν τη στίξη
+        box.innerHTML = html;
 
-        setStep(0);
-        let i = 0;
-        const typer = setInterval(() => {
-            i++;
-            el.prompt.textContent = text.slice(0, i);
-            if (i >= text.length){
-                clearInterval(typer);
-                el.caret.classList.add("done");
-                setTimeout(() => setStep(1), 300);
-                setTimeout(() => setStep(2), 900);
-                setTimeout(() => { setStep(3); start(); }, 1500);
-            }
-        }, 32);
+        const words = Array.from(box.querySelectorAll(".w"));
+        if (!animate){ words.forEach(w => w.classList.add("on")); return; }
+        words.forEach((w, i) => animations.push(setTimeout(() => w.classList.add("on"), 120 * i)));
     }
 
-    function start(){
-        started = true;
-        scene.classList.add("running");
-        render(0);
+    function renderReqs(animate){
+        const list = $("orb-reqs");
+        list.innerHTML = data().reqs.map(r => "<li>" + r + "</li>").join("");
+        const items = Array.from(list.children);
+        if (!animate){ items.forEach(li => li.classList.add("on")); return; }
+        items.forEach((li, i) => animations.push(setTimeout(() => li.classList.add("on"), 250 + 450 * i)));
     }
 
-    /* ---- Κινηματική ρομπότ (αντίστροφη κινηματική 2 αρθρώσεων) ---- */
-
-    function ik(tx, ty){
-        const dx = tx - BASE.x, dy = ty - BASE.y;
-        const d = Math.min(Math.max(Math.hypot(dx, dy), Math.abs(L1 - L2) + 1), L1 + L2 - 1);
-        const q2 = Math.acos((d * d - L1 * L1 - L2 * L2) / (2 * L1 * L2));
-        const q1 = Math.atan2(dy, dx) - Math.atan2(L2 * Math.sin(q2), L1 + L2 * Math.cos(q2));
-        const ex = BASE.x + L1 * Math.cos(q1), ey = BASE.y + L1 * Math.sin(q1);
-        return { ex, ey, x: ex + L2 * Math.cos(q1 + q2), y: ey + L2 * Math.sin(q1 + q2) };
-    }
-
-    const smooth = u => u * u * (3 - 2 * u);
-
-    function toolTarget(p){
-        // κίνηση σε τόξο με μικρή "ανύψωση" στη μέση της διαδρομής
-        const forward = p < 1;
-        const u = smooth(forward ? p : p - 1);
-        const a = forward
-            ? PICK_ANGLE + (PLACE_ANGLE - PICK_ANGLE) * u
-            : PLACE_ANGLE + (PICK_ANGLE - PLACE_ANGLE) * u;
-        const r = REACH - 22 * Math.sin(Math.PI * u);
-        return { x: BASE.x + r * Math.cos(a), y: BASE.y + r * Math.sin(a) };
-    }
-
-    /* ---- Εργαζόμενος: αυτόνομη διαδρομή ή ακολουθεί τον χρήστη ---- */
-
-    function autoPath(time){
-        return {
-            x: CELL.x + 125 * Math.cos(0.31 * time + 0.6),
-            y: CELL.y - 10 + 120 * Math.sin(0.47 * time)
+    function renderScore(animate){
+        const s = SCORES[scenario];
+        const set = v => {
+            $("orb-score").textContent = Math.round(s.total * v);
+            $("orb-safety").textContent = Math.round(s.safety * v);
+            $("orb-efficiency").textContent = Math.round(s.efficiency * v);
         };
+        if (!animate){ set(1); return; }
+        const start = performance.now();
+        const id = setInterval(() => {
+            const p = Math.min(1, (performance.now() - start) / 1000);
+            set(1 - Math.pow(1 - p, 3));
+            if (p >= 1) clearInterval(id);
+        }, 30);
+        animations.push(id);
     }
 
-    function clampToCell(p){
-        const dx = p.x - CELL.x, dy = p.y - CELL.y, d = Math.hypot(dx, dy);
-        if (d <= CELL.r) return p;
-        return { x: CELL.x + dx / d * CELL.r, y: CELL.y + dy / d * CELL.r };
+    function setRing(){
+        const value = stage < 3 ? (stage + 1) * 22 : SCORES[scenario].total;
+        ring.style.strokeDasharray = value + " 100";
     }
 
-    function toSvg(e){
-        const pt = scene.createSVGPoint();
-        pt.x = e.clientX; pt.y = e.clientY;
-        return pt.matrixTransform(scene.getScreenCTM().inverse());
+    /* ---- Μετάβαση σε βήμα ---- */
+
+    function goTo(newStage, userAction){
+        clearAnimations();
+        clearTimeout(timer);
+        stage = newStage;
+        const animate = !reduceMotion;
+
+        orb.dataset.scenario = scenario;
+        panels.forEach((p, i) => p.classList.toggle("active", i === stage));
+        $("orb-label").textContent = t("stageTitles")[stage];
+
+        stepButtons.forEach((b, i) => {
+            b.classList.toggle("active", i === stage);
+            b.classList.toggle("done", i < stage);
+            b.setAttribute("aria-current", i === stage ? "step" : "false");
+        });
+        Array.from(chipsWrap.children).forEach((b, i) => b.setAttribute("aria-pressed", i === scenario));
+
+        if (stage === 0) renderSentence(animate);
+        if (stage === 1) renderReqs(animate);
+        if (stage === 3) renderScore(animate);
+        setRing();
+
+        schedule(userAction ? 2000 : 0);
     }
 
-    if (isTouch){
-        scene.addEventListener("pointerdown", e => { pointerTarget = clampToCell(toSvg(e)); });
-    } else {
-        scene.addEventListener("pointermove", e => { pointerTarget = clampToCell(toSvg(e)); });
-        scene.addEventListener("pointerleave", () => { pointerTarget = null; });
+    function next(){
+        if (stage < 3) goTo(stage + 1);
+        else { scenario = (scenario + 1) % SCORES.length; goTo(0); }
     }
 
-    /* ---- Βρόχος προσομοίωσης ---- */
-
-    function step(dt){
-        if (!reduceMotion) simTime += dt;
-
-        // εργαζόμενος
-        const target = pointerTarget || (reduceMotion ? human : autoPath(simTime));
-        const dx = target.x - human.x, dy = target.y - human.y;
-        const dist = Math.hypot(dx, dy);
-        const maxMove = (reduceMotion ? 10000 : 110) * dt;   // ~1,1 m/s
-        if (dist > 0.5){
-            const k = Math.min(1, maxMove / dist);
-            human.x += dx * k; human.y += dy * k;
-            human.angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
-        }
-
-        // απόσταση & κανόνες ασφαλείας (speed & separation monitoring)
-        const sep = Math.hypot(human.x - BASE.x, human.y - BASE.y);
-        let allowed = 1, state = "full";
-        if (sep < R_STOP){ allowed = 0; state = "stop"; }
-        else if (sep < R_WARN){ allowed = 0.35; state = "reduced"; }
-
-        speed += (allowed - speed) * Math.min(1, dt * 6);
-
-        // ρομπότ
-        if (!reduceMotion){
-            const before = phase;
-            phase = (phase + dt * 0.45 * speed) % 2;
-            if (before < 1 && phase >= 1){ carrying = false; dropPart(); }
-            if (before > phase){ carrying = true; }   // νέος κύκλος
-        }
-
-        // KPIs: η ασφάλεια πέφτει όσο πιο κοντά πλησιάζει ο άνθρωπος,
-        // η αποδοτικότητα όσο πιο συχνά επιβραδύνει/σταματά το ρομπότ
-        const instSafety = sep >= R_WARN ? 100 : Math.max(35, 60 + 40 * (sep - R_STOP) / (R_WARN - R_STOP));
-        safety += (instSafety - safety) * Math.min(1, dt * 2);
-        efficiency += (speed * 100 - efficiency) * Math.min(1, dt * 0.35);
-
-        return { sep, state };
+    function schedule(extra){
+        clearTimeout(timer);
+        if (reduceMotion || paused) return;
+        timer = setTimeout(next, DURATION[stage] + (extra || 0));
     }
 
-    function dropPart(){
-        placedCount++;
-        const slot = (placedCount - 1) % 6;
-        if (slot === 0) el.placed.innerHTML = "";
-        const r = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-        r.setAttribute("x", 272 + (slot % 3) * 11);
-        r.setAttribute("y", 285 + Math.floor(slot / 3) * 10);
-        r.setAttribute("width", 8); r.setAttribute("height", 8); r.setAttribute("rx", 1.5);
-        el.placed.appendChild(r);
-    }
+    stepButtons.forEach(btn => {
+        btn.addEventListener("click", () => goTo(Number(btn.dataset.step), true));
+    });
 
-    let lastState = null;
+    // Κλικ στον κύκλο: επόμενο βήμα
+    orb.addEventListener("click", () => next());
+    orb.style.cursor = "pointer";
 
-    function render(dt){
-        const { sep, state } = step(dt);
+    // Παύση όσο ο χρήστης είναι πάνω στο demo
+    const visual = $("hero-visual");
+    visual.addEventListener("pointerenter", e => { if (e.pointerType === "mouse"){ paused = true; clearTimeout(timer); } });
+    visual.addEventListener("pointerleave", e => { if (e.pointerType === "mouse"){ paused = false; schedule(); } });
 
-        const tool = toolTarget(phase);
-        const k = ik(tool.x, tool.y);
-        el.link1.setAttribute("x2", k.ex); el.link1.setAttribute("y2", k.ey);
-        el.link2.setAttribute("x1", k.ex); el.link2.setAttribute("y1", k.ey);
-        el.link2.setAttribute("x2", k.x);  el.link2.setAttribute("y2", k.y);
-        el.elbow.setAttribute("cx", k.ex); el.elbow.setAttribute("cy", k.ey);
-        el.part.setAttribute("transform", "translate(" + k.x + " " + k.y + ")");
-        el.part.style.opacity = carrying ? 1 : 0;
+    // Αλλαγή γλώσσας: ξαναγράφει το τρέχον βήμα χωρίς animation
+    document.addEventListener("languagechange", () => {
+        buildChips();
+        $("orb-label").textContent = t("stageTitles")[stage];
+        renderSentence(false);
+        renderReqs(false);
+        renderScore(false);
+    });
 
-        el.human.setAttribute("transform",
-            "translate(" + human.x + " " + human.y + ") rotate(" + human.angle + ")");
-
-        el.sep.setAttribute("x2", human.x); el.sep.setAttribute("y2", human.y);
-        el.sep.setAttribute("stroke-opacity", sep < R_WARN ? 0.8 : 0);
-
-        // χρώμα ζωνών
-        el.warn.setAttribute("stroke", state === "reduced" ? "#f2a516" : "#ffffff");
-        el.warn.setAttribute("fill", state === "reduced" ? "#f2a516" : "#ffffff");
-        el.warn.setAttribute("fill-opacity", state === "reduced" ? 0.14 : 0.04);
-        el.stop.setAttribute("stroke", state === "stop" ? "#e5484d" : "#ffffff");
-        el.stop.setAttribute("fill", state === "stop" ? "#e5484d" : "#ffffff");
-        el.stop.setAttribute("fill-opacity", state === "stop" ? 0.22 : 0.06);
-
-        // KPIs
-        const s = Math.round(safety), e = Math.round(efficiency);
-        el.safety.textContent = s;
-        el.safetyBar.style.width = s + "%";
-        el.eff.textContent = e;
-        el.effBar.style.width = e + "%";
-        el.sepVal.textContent = (sep / 100).toLocaleString(currentLanguage, {
-            minimumFractionDigits: 1, maximumFractionDigits: 1
-        }) + " m";
-
-        if (state !== lastState){
-            lastState = state;
-            el.status.dataset.state = state;
-            updateStatusText();
-        }
-    }
-
-    function updateStatusText(){
-        const key = { full: "statusFull", reduced: "statusReduced", stop: "statusStop" }[lastState || "full"];
-        el.statusText.textContent = t(key);
-    }
-
-    function loop(ts){
-        if (lastTs === null) lastTs = ts;
-        const dt = Math.min(0.05, (ts - lastTs) / 1000);
-        lastTs = ts;
-        if (started && visible && !document.hidden) render(dt);
-        requestAnimationFrame(loop);
-    }
-
-    // Παύση όταν το home δεν φαίνεται (εξοικονόμηση CPU/μπαταρίας)
-    if ("IntersectionObserver" in window){
-        new IntersectionObserver(entries => {
-            visible = entries[0].isIntersecting;
-            lastTs = null;
-        }).observe(scene);
-    }
-
-    function updateTexts(){
-        el.hint.textContent = t(isTouch ? "hintTouch" : "hintPointer");
-        if (el.caret.classList.contains("done")) el.prompt.textContent = t("heroPrompt");
-        updateStatusText();
-    }
-
-    document.addEventListener("languagechange", updateTexts);
-
-    // Αρχικοποίηση
-    human = autoPath(0);
-    updateTexts();
-    setTimeout(runIntro, 400);   // αφού οριστεί η γλώσσα
-    requestAnimationFrame(loop);
+    buildChips();
+    renderReqs(false);
+    renderScore(false);
+    setTimeout(() => goTo(0), 300);   // αφού οριστεί η γλώσσα
 
 })();
 
