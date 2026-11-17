@@ -21,6 +21,7 @@ const translations = {
         navBenefits: "Benefits",
         navNews: "News",
         navPublications: "Publications",
+        navPartners: "Partners",
         navContact: "Contact",
         menuOpen: "Open menu",
         menuClose: "Close menu",
@@ -89,6 +90,12 @@ const translations = {
         pubEditor: "(ed.)",
         pubPages: "pp.",
 
+        // Partners
+        partnersTitle: "Partners",
+        partnersIntro: "Companies supporting the CROSS project.",
+        partnerLoiBadge: "Letter of Intent (LoI)",
+        partnerVolvoText: "Volvo has provided a Letter of Intent for CROSS.",
+
         // Contact
         contactTitle: "Contacts",
         contactCity: "70565 Stuttgart/Germany",
@@ -103,6 +110,7 @@ const translations = {
         navBenefits: "Vorteile",
         navNews: "Neuigkeiten",
         navPublications: "Veröffentlichungen",
+        navPartners: "Partner",
         navContact: "Kontakt",
         menuOpen: "Menü öffnen",
         menuClose: "Menü schließen",
@@ -170,6 +178,12 @@ const translations = {
         pubIn: "in:",
         pubEditor: "(Hrsg.)",
         pubPages: "S.",
+
+        // Partners
+        partnersTitle: "Partner",
+        partnersIntro: "Unternehmen, die das Projekt CROSS unterstützen.",
+        partnerLoiBadge: "Absichtserklärung (LoI)",
+        partnerVolvoText: "Volvo hat eine Absichtserklärung (Letter of Intent) für CROSS abgegeben.",
 
         // Contact
         contactTitle: "Kontakt",
@@ -310,7 +324,7 @@ navLinks.querySelectorAll("a").forEach(link => {
 
 // Κλείνει το menu αν μεγαλώσει η οθόνη
 window.addEventListener("resize", () => {
-    if (window.innerWidth > 1024) setMenu(false);
+    if (window.innerWidth > 1280) setMenu(false);
 });
 
 /* ---------- Benefits carousel ---------- */
