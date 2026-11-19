@@ -30,34 +30,7 @@ const translations = {
         // Home
         heroSubtitle: "From natural language to scored robot scenarios.",
         heroText: "CROSS develops a software toolchain that turns natural-language descriptions into robot scenarios automatically, then visualizes and evaluates them with simulation and AI, in a way people can understand.",
-        heroFunding: "Funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028",
-
-        // Interactive demo (home)
-        stepLanguage: "Language",
-        stepRequirements: "Requirements",
-        stepScenario: "Scenario",
-        stepScore: "Score",
-        stageTitles: ["Natural-language description", "Extracted requirements", "Generated scenario", "Scenario score"],
-        kpiSafety: "Safety",
-        kpiEfficiency: "Efficiency",
-        tryScenario: "Try a scenario:",
-        scenarios: [
-            {
-                name: "Handover",
-                text: "A worker *hands parts to the robot* at the assembly station and keeps a *safe distance*.",
-                reqs: ["Handover between worker and robot", "Robot speed ≤ 250 mm/s near the worker", "Separation ≥ 0.5 m"]
-            },
-            {
-                name: "Shared assembly",
-                text: "Robot and worker *assemble a gearbox side by side* within a *45-second cycle*.",
-                reqs: ["Shared workspace", "Limited contact forces", "Cycle time ≤ 45 s"]
-            },
-            {
-                name: "Palletizing",
-                text: "The robot *stacks boxes on a pallet* while the worker *restocks the conveyor*.",
-                reqs: ["Alternating access to the cell", "Robot pauses when the zone is entered", "Throughput ≥ 8 boxes/min"]
-            }
-        ],
+        heroFunding: "Funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028",
 
         // Project
         projectTitle: "Project",
@@ -119,12 +92,14 @@ const translations = {
 
         // Partners
         partnersTitle: "Partners",
+        partnersIntro: "Companies supporting the CROSS project.",
         partnerLoiBadge: "Letter of Intent (LoI)",
+        partnerVolvoText: "Volvo has provided a Letter of Intent for CROSS.",
 
         // Contact
         contactTitle: "Contacts",
         contactCity: "70565 Stuttgart/Germany",
-        contactFunding: "CROSS is funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science & Innovation."
+        contactFunding: "CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science & Innovation."
     },
 
     de: {
@@ -144,34 +119,7 @@ const translations = {
         // Home
         heroSubtitle: "Von natürlicher Sprache zu bewerteten Roboterszenarien.",
         heroText: "CROSS entwickelt eine Software-Toolchain, die Beschreibungen in natürlicher Sprache automatisch in Roboterszenarien überführt und diese anschließend mithilfe von Simulation und KI visualisiert und nachvollziehbar bewertet.",
-        heroFunding: "Gefördert vom Ministerium für Wirtschaft, Handwerk und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV). Projektlaufzeit: 01.03.2026 – 28.02.2028",
-
-        // Interactive demo (home)
-        stepLanguage: "Sprache",
-        stepRequirements: "Anforderungen",
-        stepScenario: "Szenario",
-        stepScore: "Bewertung",
-        stageTitles: ["Beschreibung in natürlicher Sprache", "Abgeleitete Anforderungen", "Generiertes Szenario", "Szenario-Bewertung"],
-        kpiSafety: "Sicherheit",
-        kpiEfficiency: "Effizienz",
-        tryScenario: "Szenario ausprobieren:",
-        scenarios: [
-            {
-                name: "Übergabe",
-                text: "Ein Werker *übergibt dem Roboter Teile* an der Montagestation und hält einen *sicheren Abstand*.",
-                reqs: ["Übergabe zwischen Werker und Roboter", "Robotergeschwindigkeit ≤ 250 mm/s nahe dem Werker", "Abstand ≥ 0,5 m"]
-            },
-            {
-                name: "Gemeinsame Montage",
-                text: "Roboter und Werker *montieren nebeneinander ein Getriebe* in einem *45-Sekunden-Takt*.",
-                reqs: ["Gemeinsamer Arbeitsraum", "Begrenzte Kontaktkräfte", "Taktzeit ≤ 45 s"]
-            },
-            {
-                name: "Palettierung",
-                text: "Der Roboter *stapelt Kartons auf eine Palette*, während der Werker *das Förderband auffüllt*.",
-                reqs: ["Abwechselnder Zugang zur Zelle", "Roboter pausiert bei Betreten der Zone", "Durchsatz ≥ 8 Kartons/min"]
-            }
-        ],
+        heroFunding: "Gefördert vom Ministerium für Wirtschaft, Arbeit und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV). Projektlaufzeit: 01.03.2026 – 28.02.2028",
 
         // Project
         projectTitle: "Projekt",
@@ -233,12 +181,14 @@ const translations = {
 
         // Partners
         partnersTitle: "Partner",
-        partnerLoiBadge: "Absichtserklärung (Letter of Intent, LoI)",
+        partnersIntro: "Unternehmen, die das Projekt CROSS unterstützen.",
+        partnerLoiBadge: "Absichtserklärung (LoI)",
+        partnerVolvoText: "Volvo hat eine Absichtserklärung (Letter of Intent) für CROSS abgegeben.",
 
         // Contact
         contactTitle: "Kontakt",
         contactCity: "70565 Stuttgart/Deutschland",
-        contactFunding: "CROSS wird vom Ministerium für Wirtschaft, Handwerk und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV) gefördert · Projektlaufzeit: 01.03.2026 – 28.02.2028 · Das Projekt wird vollständig von der TWT GmbH Science & Innovation durchgeführt."
+        contactFunding: "CROSS wird vom Ministerium für Wirtschaft, Arbeit und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV) gefördert · Projektlaufzeit: 01.03.2026 – 28.02.2028 · Das Projekt wird vollständig von der TWT GmbH Science & Innovation durchgeführt."
     }
 
 };
@@ -522,182 +472,80 @@ window.addEventListener("resize", () => {
 
 })();
 
-/* ---------- Διαδραστικός κύκλος CROSS στο home ----------
-   Δείχνει τη ροή του CROSS για ένα σενάριο:
-   1. Περιγραφή σε φυσική γλώσσα   2. Απαιτήσεις
-   3. Παραγόμενο σενάριο            4. Βαθμολογία
-   Ο χρήστης μπορεί να διαλέξει σενάριο ή να πατήσει ένα βήμα.
-   Οι βαθμολογίες είναι ενδεικτικές.
-*/
+/* ---------- Διαδραστικός κύκλος στο home ---------- */
 
-(function initCrossDemo(){
+(function initHeroCircle(){
 
-    const orb = document.getElementById("orb");
-    if (!orb) return;
+    const home = document.getElementById("home");
+    const visual = document.getElementById("hero-visual");
+    const circle = document.getElementById("hero-circle");
+    if (!home || !visual || !circle) return;
 
-    const $ = id => document.getElementById(id);
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Ενδεικτικές βαθμολογίες ανά σενάριο
-    const SCORES = [
-        { total: 86, safety: 91, efficiency: 80 },
-        { total: 78, safety: 84, efficiency: 72 },
-        { total: 91, safety: 95, efficiency: 88 }
-    ];
-    const DURATION = [3600, 3000, 3000, 4500];   // ms ανά βήμα
+    const MAX_SHIFT = 45;   // πόσα px μπορεί να μετακινηθεί ο κύκλος
+    const EASE = 0.08;      // πόσο "μαλακά" ακολουθεί (μικρότερο = πιο αργά)
 
-    const panels = Array.from(orb.querySelectorAll(".orb-panel"));
-    const stepButtons = Array.from(document.querySelectorAll("#orb-steps button"));
-    const chipsWrap = $("orb-chips");
-    const ring = $("orb-ring");
+    let target = { x: 0, y: 0, s: 1 };
+    let current = { x: 0, y: 0, s: 1 };
+    let running = false;
 
-    let scenario = 0;
-    let stage = 0;
-    let timer = null;
-    let paused = false;
-    let animations = [];      // ενεργά timeouts/intervals του τρέχοντος βήματος
+    function animate(){
+        current.x += (target.x - current.x) * EASE;
+        current.y += (target.y - current.y) * EASE;
+        current.s += (target.s - current.s) * EASE;
 
-    function clearAnimations(){
-        animations.forEach(id => { clearTimeout(id); clearInterval(id); });
-        animations = [];
+        visual.style.setProperty("--x", current.x.toFixed(2) + "px");
+        visual.style.setProperty("--y", current.y.toFixed(2) + "px");
+        visual.style.setProperty("--s", current.s.toFixed(4));
+
+        const settled =
+            Math.abs(target.x - current.x) < 0.1 &&
+            Math.abs(target.y - current.y) < 0.1 &&
+            Math.abs(target.s - current.s) < 0.001;
+
+        if (settled){ running = false; return; }
+        requestAnimationFrame(animate);
     }
 
-    function data(){ return t("scenarios")[scenario]; }
+    function kick(){
+        if (!running){ running = true; requestAnimationFrame(animate); }
+    }
 
-    /* ---- Σενάρια (κουμπιά) ---- */
+    if (!reduceMotion){
 
-    function buildChips(){
-        chipsWrap.innerHTML = "";
-        t("scenarios").forEach((sc, i) => {
-            const btn = document.createElement("button");
-            btn.type = "button";
-            btn.textContent = sc.name;
-            btn.setAttribute("aria-pressed", i === scenario);
-            btn.addEventListener("click", () => {
-                scenario = i;
-                goTo(0, true);
-            });
-            chipsWrap.appendChild(btn);
+        // Ο κύκλος "κοιτάζει" προς το ποντίκι / το δάχτυλο
+        home.addEventListener("pointermove", e => {
+            const r = visual.getBoundingClientRect();
+            const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+            const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+            target.x = Math.max(-1, Math.min(1, dx)) * MAX_SHIFT;
+            target.y = Math.max(-1, Math.min(1, dy)) * MAX_SHIFT;
+            kick();
         });
-    }
 
-    /* ---- Περιεχόμενο κάθε βήματος ---- */
-
-    function renderSentence(animate){
-        const box = $("orb-sentence");
-        // *φράσεις* = λέξεις-κλειδιά που γίνονται απαιτήσεις
-        const html = data().text
-            .split(/(\*[^*]+\*)/)
-            .filter(Boolean)
-            .map(part => {
-                const key = part.startsWith("*");
-                const words = part.replace(/\*/g, "").split(" ").filter(Boolean)
-                    .map(w => '<span class="w">' + w + '</span>').join(" ");
-                return key ? "<mark>" + words + "</mark>" : words;
-            })
-            .join(" ")
-            .replace(/ (<span class="w">[.,;:!?])/g, "$1");   // χωρίς κενό πριν τη στίξη
-        box.innerHTML = html;
-
-        const words = Array.from(box.querySelectorAll(".w"));
-        if (!animate){ words.forEach(w => w.classList.add("on")); return; }
-        words.forEach((w, i) => animations.push(setTimeout(() => w.classList.add("on"), 120 * i)));
-    }
-
-    function renderReqs(animate){
-        const list = $("orb-reqs");
-        list.innerHTML = data().reqs.map(r => "<li>" + r + "</li>").join("");
-        const items = Array.from(list.children);
-        if (!animate){ items.forEach(li => li.classList.add("on")); return; }
-        items.forEach((li, i) => animations.push(setTimeout(() => li.classList.add("on"), 250 + 450 * i)));
-    }
-
-    function renderScore(animate){
-        const s = SCORES[scenario];
-        const set = v => {
-            $("orb-score").textContent = Math.round(s.total * v);
-            $("orb-safety").textContent = Math.round(s.safety * v);
-            $("orb-efficiency").textContent = Math.round(s.efficiency * v);
-        };
-        if (!animate){ set(1); return; }
-        const start = performance.now();
-        const id = setInterval(() => {
-            const p = Math.min(1, (performance.now() - start) / 1000);
-            set(1 - Math.pow(1 - p, 3));
-            if (p >= 1) clearInterval(id);
-        }, 30);
-        animations.push(id);
-    }
-
-    function setRing(){
-        const value = stage < 3 ? (stage + 1) * 22 : SCORES[scenario].total;
-        ring.style.strokeDasharray = value + " 100";
-    }
-
-    /* ---- Μετάβαση σε βήμα ---- */
-
-    function goTo(newStage, userAction){
-        clearAnimations();
-        clearTimeout(timer);
-        stage = newStage;
-        const animate = !reduceMotion;
-
-        orb.dataset.scenario = scenario;
-        panels.forEach((p, i) => p.classList.toggle("active", i === stage));
-        $("orb-label").textContent = t("stageTitles")[stage];
-
-        stepButtons.forEach((b, i) => {
-            b.classList.toggle("active", i === stage);
-            b.classList.toggle("done", i < stage);
-            b.setAttribute("aria-current", i === stage ? "step" : "false");
+        home.addEventListener("pointerleave", () => {
+            target.x = 0; target.y = 0; target.s = 1;
+            kick();
         });
-        Array.from(chipsWrap.children).forEach((b, i) => b.setAttribute("aria-pressed", i === scenario));
 
-        if (stage === 0) renderSentence(animate);
-        if (stage === 1) renderReqs(animate);
-        if (stage === 3) renderScore(animate);
-        setRing();
-
-        schedule(userAction ? 2000 : 0);
+        circle.addEventListener("pointerenter", () => { target.s = 1.07; kick(); });
+        circle.addEventListener("pointerleave", () => { target.s = 1; kick(); });
     }
 
-    function next(){
-        if (stage < 3) goTo(stage + 1);
-        else { scenario = (scenario + 1) % SCORES.length; goTo(0); }
-    }
+    // Κλικ / πάτημα: κύμα που απλώνεται από τον κύκλο
+    circle.addEventListener("click", () => {
+        if (reduceMotion) return;
+        const ripple = document.createElement("span");
+        ripple.className = "hero-ripple";
+        // ξεκινά από εκεί που βρίσκεται ο κύκλος εκείνη τη στιγμή
+        ripple.style.translate = current.x + "px " + current.y + "px";
+        visual.appendChild(ripple);
+        ripple.addEventListener("animationend", () => ripple.remove());
 
-    function schedule(extra){
-        clearTimeout(timer);
-        if (reduceMotion || paused) return;
-        timer = setTimeout(next, DURATION[stage] + (extra || 0));
-    }
-
-    stepButtons.forEach(btn => {
-        btn.addEventListener("click", () => goTo(Number(btn.dataset.step), true));
+        target.s = 0.94; kick();
+        setTimeout(() => { target.s = circle.matches(":hover") ? 1.07 : 1; kick(); }, 150);
     });
-
-    // Κλικ στον κύκλο: επόμενο βήμα
-    orb.addEventListener("click", () => next());
-    orb.style.cursor = "pointer";
-
-    // Παύση όσο ο χρήστης είναι πάνω στο demo
-    const visual = $("hero-visual");
-    visual.addEventListener("pointerenter", e => { if (e.pointerType === "mouse"){ paused = true; clearTimeout(timer); } });
-    visual.addEventListener("pointerleave", e => { if (e.pointerType === "mouse"){ paused = false; schedule(); } });
-
-    // Αλλαγή γλώσσας: ξαναγράφει το τρέχον βήμα χωρίς animation
-    document.addEventListener("languagechange", () => {
-        buildChips();
-        $("orb-label").textContent = t("stageTitles")[stage];
-        renderSentence(false);
-        renderReqs(false);
-        renderScore(false);
-    });
-
-    buildChips();
-    renderReqs(false);
-    renderScore(false);
-    setTimeout(() => goTo(0), 300);   // αφού οριστεί η γλώσσα
 
 })();
 
