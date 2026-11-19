@@ -53,74 +53,10 @@
 <!-- ================= HOME ================= -->
 <section id="home">
 
-    <!-- Διαδραστικό: από περιγραφή σε φυσική γλώσσα σε βαθμολογημένο σενάριο ρομπότ -->
-    <div class="hero-visual" id="hero-visual">
-
-        <div class="orb" id="orb" role="region" aria-roledescription="interactive demo" aria-live="polite">
-
-            <svg class="orb-ring" viewBox="0 0 100 100" aria-hidden="true">
-                <circle class="orb-ring-track" cx="50" cy="50" r="47"/>
-                <circle class="orb-ring-progress" id="orb-ring" cx="50" cy="50" r="47" pathLength="100"/>
-            </svg>
-
-            <div class="orb-inner">
-
-                <span class="orb-label" id="orb-label"></span>
-
-                <!-- 1. Περιγραφή σε φυσική γλώσσα -->
-                <div class="orb-panel" data-panel="0">
-                    <p class="orb-sentence" id="orb-sentence"></p>
-                </div>
-
-                <!-- 2. Απαιτήσεις που εξάγονται -->
-                <div class="orb-panel" data-panel="1">
-                    <ul class="orb-reqs" id="orb-reqs"></ul>
-                </div>
-
-                <!-- 3. Παραγόμενο σενάριο -->
-                <div class="orb-panel" data-panel="2">
-                    <svg class="orb-scene" id="orb-scene" viewBox="0 0 200 140" aria-hidden="true">
-                        <circle cx="80" cy="74" r="50" class="scene-zone"/>
-                        <rect x="34" y="104" width="26" height="16" rx="2" class="scene-table"/>
-                        <rect x="100" y="104" width="26" height="16" rx="2" class="scene-table"/>
-                        <g class="scene-arm">
-                            <line x1="80" y1="74" x2="80" y2="112" class="scene-link"/>
-                            <rect x="75" y="108" width="10" height="8" rx="1.5" class="scene-part"/>
-                        </g>
-                        <circle cx="80" cy="74" r="9" class="scene-base"/>
-                        <g class="scene-human">
-                            <ellipse cx="0" cy="0" rx="11" ry="6"/>
-                            <circle cx="0" cy="0" r="5" class="scene-head"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <!-- 4. Βαθμολογία -->
-                <div class="orb-panel" data-panel="3">
-                    <div class="orb-score"><span id="orb-score">0</span><small>/100</small></div>
-                    <div class="orb-subscores">
-                        <span><span data-i18n="kpiSafety">Safety</span> <b id="orb-safety">0</b></span>
-                        <span><span data-i18n="kpiEfficiency">Efficiency</span> <b id="orb-efficiency">0</b></span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- Βήματα: κλικ για μετάβαση -->
-        <ol class="orb-steps" id="orb-steps">
-            <li><button type="button" data-step="0" data-i18n="stepLanguage">Language</button></li>
-            <li><button type="button" data-step="1" data-i18n="stepRequirements">Requirements</button></li>
-            <li><button type="button" data-step="2" data-i18n="stepScenario">Scenario</button></li>
-            <li><button type="button" data-step="3" data-i18n="stepScore">Score</button></li>
-        </ol>
-
-        <!-- Παραδείγματα σεναρίων: κλικ για νέο σενάριο -->
-        <div class="orb-scenarios">
-            <span class="orb-scenarios-label" data-i18n="tryScenario">Try a scenario:</span>
-            <div class="orb-chips" id="orb-chips"></div>
-        </div>
-
+    <!-- Διαδραστικός κύκλος: ακολουθεί το ποντίκι, κλικ = κύμα -->
+    <div class="hero-visual" id="hero-visual" aria-hidden="true">
+        <div class="hero-orbit"><span></span><span></span><span></span></div>
+        <div class="hero-circle" id="hero-circle"></div>
     </div>
 
     <div class="hero-content">
@@ -137,7 +73,7 @@
         </p>
 
         <div class="funding" data-i18n="heroFunding">
-            Funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028
+            Funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV). Project Duration: 01/03/2026 – 28/02/2028
         </div>
 
     </div>
@@ -336,15 +272,25 @@
 
         <h2 class="partners-title" data-i18n="partnersTitle">Partners</h2>
 
-        <!-- Για νέο partner: αντέγραψε ολόκληρο το partner-item -->
-        <div class="partner-item">
+        <p class="partners-intro" data-i18n="partnersIntro">Companies supporting the CROSS project.</p>
 
-            <!-- Βάλε το λογότυπο στο images/volvo-logo.png -->
-            <img src="images/volvo-logo.png" alt="Volvo" class="partner-logo" onerror="this.style.display = 'none'">
+        <!-- Για νέο partner: αντέγραψε ολόκληρο το partner-card -->
+        <div class="partners-grid">
 
-            <h3>Volvo</h3>
+            <div class="partner-card">
 
-            <p data-i18n="partnerLoiBadge">Letter of Intent (LoI)</p>
+                <div class="partner-logo">
+                    <!-- Βάλε το λογότυπο στο images/volvo-logo.png -->
+                    <img src="images/volvo-logo.png" alt="Volvo" onerror="this.parentElement.hidden = true">
+                </div>
+
+                <h3>Volvo</h3>
+
+                <span class="partner-badge" data-i18n="partnerLoiBadge">Letter of Intent (LoI)</span>
+
+                <p data-i18n="partnerVolvoText">Volvo has provided a Letter of Intent for CROSS.</p>
+
+            </div>
 
         </div>
 
@@ -389,7 +335,7 @@
         </div>
 
         <div class="contact-funding" data-i18n="contactFunding">
-            CROSS is funded by the Ministry of Economic Affairs, Skilled Crafts and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science &amp; Innovation.
+            CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science &amp; Innovation.
         </div>
 
     </div>
