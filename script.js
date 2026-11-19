@@ -98,7 +98,7 @@ const translations = {
 
         // Contact
         contactTitle: "Contacts",
-        contactCity: "70565 Stuttgart/Germany",
+        contactCity: "70565 Stuttgart Germany",
         contactFunding: "CROSS is funded by the Ministry of Economic Affairs, Labour and Tourism Baden-Württemberg under the Invest BW programme (Innovation IV) · Project duration: 01/03/2026 – 28/02/2028 · The project is conducted entirely by TWT GmbH Science & Innovation."
     },
 
@@ -187,7 +187,7 @@ const translations = {
 
         // Contact
         contactTitle: "Kontakt",
-        contactCity: "70565 Stuttgart/Deutschland",
+        contactCity: "70565 Stuttgart Deutschland",
         contactFunding: "CROSS wird vom Ministerium für Wirtschaft, Arbeit und Tourismus Baden-Württemberg im Rahmen des Programms Invest BW (Innovation IV) gefördert · Projektlaufzeit: 01.03.2026 – 28.02.2028 · Das Projekt wird vollständig von der TWT GmbH Science & Innovation durchgeführt."
     }
 
