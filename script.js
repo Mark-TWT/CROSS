@@ -96,7 +96,7 @@ const translations = {
         stepSdl: "SDL",
         stepSimulation: "Simulation",
         stepKpis: "KPIs",
-        heroSceneLabel: "Simulated human-robot work cell with safety zones and live scores",
+        heroSceneLabel: "Simulated human-robot work cell with safety zones",
         kpiSeparation: "Distance",
         statusFull: "Full speed",
         statusReduced: "Reduced speed",
@@ -256,7 +256,7 @@ const translations = {
         stepSdl: "SDL",
         stepSimulation: "Simulation",
         stepKpis: "KPIs",
-        heroSceneLabel: "Simulierte Mensch-Roboter-Arbeitszelle mit Schutzzonen und Live-Bewertung",
+        heroSceneLabel: "Simulierte Mensch-Roboter-Arbeitszelle mit Schutzzonen",
         kpiSeparation: "Abstand",
         statusFull: "Volle Geschwindigkeit",
         statusReduced: "Reduzierte Geschwindigkeit",
@@ -1657,12 +1657,9 @@ const HERO_ANIMATION = "cell";
 })();
 
 /* ---------- Home: κάτοψη κυψέλης μέσα σε κύκλο (ζωντανή προσομοίωση) ----------
-   1. Μια περιγραφή σε φυσική γλώσσα "πληκτρολογείται".
-   2. Τα βήματα της toolchain ανάβουν (Language → … → KPIs).
-   3. Ξεκινά η προσομοίωση: ρομπότ κάνει pick & place, ο εργαζόμενος
-      κινείται, και το ρομπότ επιβραδύνει/σταματά στις ζώνες ασφαλείας.
-   4. Τα KPIs (ασφάλεια, αποδοτικότητα, απόσταση) υπολογίζονται live.
-   Ο εργαζόμενος ακολουθεί το ποντίκι (ή tap στο κινητό). Οι τιμές είναι ενδεικτικές.
+   Μόνο ο κύκλος με την κίνηση: το ρομπότ κάνει pick & place, ο εργαζόμενος
+   κινείται, και το ρομπότ επιβραδύνει/σταματά στις ζώνες ασφαλείας.
+   Ο εργαζόμενος ακολουθεί το ποντίκι (ή tap στο κινητό).
 */
 
 (function initHeroCell(){
@@ -1677,30 +1674,9 @@ const HERO_ANIMATION = "cell";
         const style = document.createElement("style");
         style.id = "cell-styles";
         style.textContent = `
-#home .hero-visual{ position:relative; width:100%; max-width:500px; aspect-ratio:auto; justify-self:center; align-self:center; display:flex; flex-direction:column; align-items:center; gap:14px; }
-@media (max-width:1024px){ #home .hero-visual{ max-width:420px; order:2; } }
-.hero-prompt{ align-self:stretch; min-height:3.2em; padding:10px 16px; background:#fff; border:1px solid #dfe6ea; border-radius:14px 14px 14px 4px; box-shadow:0 6px 18px rgba(0,0,0,.05); font-size:16px; line-height:1.5; color:#333; text-align:left; }
-.hero-caret{ display:inline-block; width:2px; height:1.1em; margin-left:2px; vertical-align:text-bottom; background:#006682; animation:hero-blink 1s steps(1) infinite; }
-.hero-caret.done{ display:none; }
-@keyframes hero-blink{ 50%{ opacity:0; } }
-.hero-steps{ list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:6px; margin:0; padding:0; }
-.hero-steps li{ padding:4px 10px; border-radius:999px; border:1px solid #cfdde3; font-size:13px; font-weight:600; color:#7a8d95; background:#fff; transition:background .4s, color .4s, border-color .4s; }
-.hero-steps li.done{ color:#006682; border-color:#006682; }
-.hero-steps li.active{ background:#006682; border-color:#006682; color:#fff; }
-.hero-scene{ width:100%; height:auto; display:block; cursor:crosshair; filter:drop-shadow(0 24px 40px rgba(0,102,130,.25)); opacity:.25; transition:opacity .8s ease; }
-.hero-scene.running{ opacity:1; }
-.hero-kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; width:100%; }
-.hero-kpi{ display:flex; flex-direction:column; align-items:center; gap:2px; padding:10px 6px; background:#fff; border:1px solid #dfe6ea; border-radius:10px; }
-.hero-kpi-label{ font-size:12px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:#6b7c84; }
-.hero-kpi-value{ font-size:24px; font-weight:600; color:#006682; font-variant-numeric:tabular-nums; }
-.hero-kpi-bar{ width:80%; height:4px; margin-top:4px; border-radius:2px; background:#e3ecef; overflow:hidden; }
-.hero-kpi-bar span{ display:block; height:100%; width:0%; background:#006682; transition:width .3s linear; }
-.hero-status{ display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:#333; }
-.hero-status-dot{ width:10px; height:10px; border-radius:50%; background:#2fb37a; box-shadow:0 0 0 4px rgba(47,179,122,.18); transition:background .3s, box-shadow .3s; }
-.hero-status[data-state="reduced"] .hero-status-dot{ background:#f2a516; box-shadow:0 0 0 4px rgba(242,165,22,.2); }
-.hero-status[data-state="stop"] .hero-status-dot{ background:#e5484d; box-shadow:0 0 0 4px rgba(229,72,77,.2); }
-#home .hero-hint{ font-size:13px; line-height:1.4; color:#6b7c84; margin:0; }
-@media (prefers-reduced-motion:reduce){ .hero-caret{ animation:none; } .hero-scene, .hero-steps li, .hero-kpi-bar span{ transition:none; } }
+#home .hero-visual{ position:relative; width:100%; max-width:480px; aspect-ratio:auto; justify-self:center; align-self:center; display:block; }
+@media (max-width:1024px){ #home .hero-visual{ max-width:380px; order:2; } }
+.hero-scene{ width:100%; height:auto; display:block; cursor:crosshair; filter:drop-shadow(0 24px 40px rgba(0,102,130,.25)); }
 `;
         document.head.appendChild(style);
     }
@@ -1709,20 +1685,8 @@ const HERO_ANIMATION = "cell";
 
     host.removeAttribute("aria-hidden");
     host.innerHTML = `
-        <div class="hero-prompt">
-            <span id="hero-prompt-text"></span><span class="hero-caret" id="hero-caret"></span>
-        </div>
-
-        <ol class="hero-steps" id="hero-steps">
-            <li data-i18n="stepLanguage">Language</li>
-            <li data-i18n="stepRequirements">Requirements</li>
-            <li data-i18n="stepSdl">SDL</li>
-            <li data-i18n="stepSimulation">Simulation</li>
-            <li data-i18n="stepKpis">KPIs</li>
-        </ol>
-
         <svg class="hero-scene" id="hero-scene" viewBox="0 0 400 400" role="img" aria-labelledby="hero-scene-title">
-            <title id="hero-scene-title" data-i18n="heroSceneLabel">Simulated human-robot work cell with safety zones and live scores</title>
+            <title id="hero-scene-title" data-i18n="heroSceneLabel">Simulated human-robot work cell with safety zones</title>
             <defs>
                 <clipPath id="cell-clip"><circle cx="200" cy="200" r="190"/></clipPath>
                 <pattern id="cell-grid" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -1760,30 +1724,6 @@ const HERO_ANIMATION = "cell";
                 </g>
             </g>
         </svg>
-
-        <div class="hero-kpis">
-            <div class="hero-kpi">
-                <span class="hero-kpi-label" data-i18n="kpiSafety">Safety</span>
-                <span class="hero-kpi-value" id="kpi-safety">–</span>
-                <span class="hero-kpi-bar"><span id="kpi-safety-bar"></span></span>
-            </div>
-            <div class="hero-kpi">
-                <span class="hero-kpi-label" data-i18n="kpiEfficiency">Efficiency</span>
-                <span class="hero-kpi-value" id="kpi-efficiency">–</span>
-                <span class="hero-kpi-bar"><span id="kpi-efficiency-bar"></span></span>
-            </div>
-            <div class="hero-kpi">
-                <span class="hero-kpi-label" data-i18n="kpiSeparation">Distance</span>
-                <span class="hero-kpi-value" id="kpi-separation">–</span>
-            </div>
-        </div>
-
-        <div class="hero-status" id="hero-status" data-state="full" aria-live="polite">
-            <span class="hero-status-dot"></span>
-            <span id="hero-status-text"></span>
-        </div>
-
-        <p class="hero-hint" id="hero-hint"></p>
 `;
 
     const scene = document.getElementById("hero-scene");
@@ -1801,19 +1741,11 @@ const HERO_ANIMATION = "cell";
     const el = {
         link1: $("link1"), link2: $("link2"), elbow: $("elbow"), part: $("part"),
         human: $("human"), sep: $("sep-line"), warn: $("zone-warn"), stop: $("zone-stop"),
-        placed: $("placed-parts"),
-        safety: $("kpi-safety"), safetyBar: $("kpi-safety-bar"),
-        eff: $("kpi-efficiency"), effBar: $("kpi-efficiency-bar"),
-        sepVal: $("kpi-separation"),
-        status: $("hero-status"), statusText: $("hero-status-text"),
-        hint: $("hero-hint"), prompt: $("hero-prompt-text"), caret: $("hero-caret"),
-        steps: Array.from(document.querySelectorAll("#hero-steps li"))
+        placed: $("placed-parts")
     };
 
     let phase = 0;
     let speed = 1;
-    let efficiency = 100;
-    let safety = 100;
     let placedCount = 0;
     let carrying = true;
     let simTime = 0;
@@ -1823,44 +1755,8 @@ const HERO_ANIMATION = "cell";
     let visible = true;
     let lastTs = null;
 
-    /* ---- Εισαγωγή: πληκτρολόγηση + βήματα toolchain ---- */
-
-    function setStep(activeIndex){
-        el.steps.forEach((li, i) => {
-            li.classList.toggle("done", i < activeIndex);
-            li.classList.toggle("active", i === activeIndex || (activeIndex >= 3 && i >= 3));
-        });
-    }
-
-    function runIntro(){
-        const text = t("heroPrompt");
-
-        if (reduceMotion){
-            el.prompt.textContent = text;
-            el.caret.classList.add("done");
-            setStep(3);
-            start();
-            return;
-        }
-
-        setStep(0);
-        let i = 0;
-        const typer = setInterval(() => {
-            i++;
-            el.prompt.textContent = text.slice(0, i);
-            if (i >= text.length){
-                clearInterval(typer);
-                el.caret.classList.add("done");
-                setTimeout(() => setStep(1), 300);
-                setTimeout(() => setStep(2), 900);
-                setTimeout(() => { setStep(3); start(); }, 1500);
-            }
-        }, 32);
-    }
-
     function start(){
         started = true;
-        scene.classList.add("running");
         render(0);
     }
 
@@ -1945,10 +1841,6 @@ const HERO_ANIMATION = "cell";
             if (before > phase){ carrying = true; }
         }
 
-        const instSafety = sep >= R_WARN ? 100 : Math.max(35, 60 + 40 * (sep - R_STOP) / (R_WARN - R_STOP));
-        safety += (instSafety - safety) * Math.min(1, dt * 2);
-        efficiency += (speed * 100 - efficiency) * Math.min(1, dt * 0.35);
-
         return { sep, state };
     }
 
@@ -1962,8 +1854,6 @@ const HERO_ANIMATION = "cell";
         r.setAttribute("width", 8); r.setAttribute("height", 8); r.setAttribute("rx", 1.5);
         el.placed.appendChild(r);
     }
-
-    let lastState = null;
 
     function render(dt){
         const { sep, state } = step(dt);
@@ -1990,25 +1880,6 @@ const HERO_ANIMATION = "cell";
         el.stop.setAttribute("fill", state === "stop" ? "#e5484d" : "#ffffff");
         el.stop.setAttribute("fill-opacity", state === "stop" ? 0.22 : 0.06);
 
-        const s = Math.round(safety), e = Math.round(efficiency);
-        el.safety.textContent = s;
-        el.safetyBar.style.width = s + "%";
-        el.eff.textContent = e;
-        el.effBar.style.width = e + "%";
-        el.sepVal.textContent = (sep / 100).toLocaleString(currentLanguage, {
-            minimumFractionDigits: 1, maximumFractionDigits: 1
-        }) + " m";
-
-        if (state !== lastState){
-            lastState = state;
-            el.status.dataset.state = state;
-            updateStatusText();
-        }
-    }
-
-    function updateStatusText(){
-        const key = { full: "statusFull", reduced: "statusReduced", stop: "statusStop" }[lastState || "full"];
-        el.statusText.textContent = t(key);
     }
 
     function loop(ts){
@@ -2027,19 +1898,8 @@ const HERO_ANIMATION = "cell";
         }).observe(scene);
     }
 
-    function updateTexts(){
-        el.hint.textContent = t(isTouch ? "hintTouch" : "hintPointer");
-        if (el.caret.classList.contains("done")) el.prompt.textContent = t("heroPrompt");
-        updateStatusText();
-    }
-
-    document.addEventListener("languagechange", updateTexts);
-
     human = autoPath(0);
-    setTimeout(() => {          // αφού οριστεί η γλώσσα
-        updateTexts();
-        runIntro();
-    }, 400);
+    start();
     requestAnimationFrame(loop);
 
 })();
